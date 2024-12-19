@@ -1,10 +1,13 @@
-#include "StartMenu.h"
 #include "Game.h"
+#include "StartMenu.h"
+#include "CharacterCreator.h"
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    StartMenu menu;
-    Game game;
+	Game game;
+	game.run();
+
 }
 
