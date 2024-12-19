@@ -3,6 +3,7 @@
 StartMenu::StartMenu()
 	: m_startMenu(false)
 	, m_startGame(false)
+	, m_characterCreated(false)
 	//, m_game()
 
 {
@@ -60,17 +61,27 @@ void StartMenu::menuChoice(char choice)
 	{
 		// have to have a character before you start game
 		cout << "Starting game.." << endl;
-		setStartMenu(false);
-		setStartGame(true);
+		if (getCharacterCreated())
+		{
+			setStartMenu(false);
+			setStartGame(true);
+		}
+		else
+		{
+			cout << "Character not created yet." << endl;
+		}
 	}
 	else if (choice == '2')
 	{
-		// Character Creation class object here
+		cout << "Starting character creation.. " << endl;
+		setCharacterCreated(true);
+		// create character somehow here
 
 	}
 	else if (choice == '3')
 	{
 		// Load inventory from file and use inventory class
+		cout << "Starting inventory display" << endl;
 	}
 	else
 

@@ -11,6 +11,7 @@ private:
 	bool m_startGame;
 	//CharacterTemplate* m_character; // pass values into this object?
 
+
 public:
 	Game();
 	virtual ~Game();

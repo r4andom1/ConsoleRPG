@@ -14,9 +14,9 @@ void Game::run()
 {
 	StartMenu menu;
 	menu.start();
-
-	if (menu.gameStarted())
+	if (menu.getCharacterCreated())
 	{
-		cout << "Game started in Game class!" << endl;
+		cout << "started game inside Game class" << endl;
 	}
+	
 }
