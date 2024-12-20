@@ -1,6 +1,6 @@
 #pragma once
 #include "StartMenu.h"
-#include "CharacterTemplate.h"
+#include "CharacterCreator.h"
 #include <string>
 using namespace std;
 
@@ -9,11 +9,11 @@ class Game
 {
 private:
 	bool m_startGame;
-	//CharacterTemplate* m_character; // pass values into this object?
+	CharacterCreator* m_character;
 
 
 public:
-	Game();
+	Game(CharacterCreator* character);
 	virtual ~Game();
 
 	// Member Functions

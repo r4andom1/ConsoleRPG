@@ -1,6 +1,7 @@
 #include "CharacterCreator.h"
 
-CharacterCreator::CharacterCreator()
+
+CharacterCreator::CharacterCreator(const string& name, string playerClass)
 {
 }
 

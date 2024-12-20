@@ -6,8 +6,8 @@ using namespace std;
 
 int main()
 {
-	Game game;
-	game.run();
+	StartMenu menu;
+	menu.start();
 
 }
 

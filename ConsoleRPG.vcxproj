@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="Cave.cpp" />
     <ClCompile Include="CharacterCreator.cpp" />
-    <ClCompile Include="CharacterTemplate.cpp" />
     <ClCompile Include="Church.cpp" />
     <ClCompile Include="CombatOptions.cpp" />
     <ClCompile Include="main.cpp" />
@@ -150,7 +149,6 @@
   <ItemGroup>
     <ClInclude Include="Cave.h" />
     <ClInclude Include="CharacterCreator.h" />
-    <ClInclude Include="CharacterTemplate.h" />
     <ClInclude Include="Church.h" />
     <ClInclude Include="CombatOptions.h" />
     <ClInclude Include="Creature.h" />

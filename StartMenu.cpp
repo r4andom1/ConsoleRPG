@@ -3,8 +3,7 @@
 StartMenu::StartMenu()
 	: m_startMenu(false)
 	, m_startGame(false)
-	, m_characterCreated(false)
-	//, m_game()
+	, m_character(nullptr)
 
 {
 }
@@ -60,22 +59,28 @@ void StartMenu::menuChoice(char choice)
 	else if (choice == '1')
 	{
 		// have to have a character before you start game
-		cout << "Starting game.." << endl;
-		if (getCharacterCreated())
+		
+		if (m_character != nullptr) // if character is created
 		{
+			Game game(m_character);
 			setStartMenu(false);
 			setStartGame(true);
+			cout << "Starting game.." << endl;
 		}
 		else
 		{
-			cout << "Character not created yet." << endl;
+			cout << "Create a character before starting the game!" << endl;
+			string confirm;
+			cout << "Press enter to continue.." << endl;
+			getline(cin, confirm);
 		}
+
 	}
 	else if (choice == '2')
 	{
 		cout << "Starting character creation.. " << endl;
-		setCharacterCreated(true);
-		// create character somehow here
+		CharacterCreator characterMenu;
+		characterMenu.start(); // ?
 
 	}
 	else if (choice == '3')
