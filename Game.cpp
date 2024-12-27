@@ -1,8 +1,7 @@
 #include "Game.h"
 
-Game::Game(CharacterCreator* character)
+Game::Game()
 	: m_startGame(false)
-	, m_character(nullptr)
 {
 }
 
@@ -14,4 +13,11 @@ void Game::run()
 {
 	StartMenu menu;
 	menu.start();
+	if (menu.gameStarted())
+	{
+		//while (menu.)
+		//{
+
+		//}
+	}
 }

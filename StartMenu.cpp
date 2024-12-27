@@ -4,7 +4,6 @@ StartMenu::StartMenu()
 	: m_startMenu(false)
 	, m_startGame(false)
 	, m_character(nullptr)
-
 {
 }
 
@@ -59,28 +58,29 @@ void StartMenu::menuChoice(char choice)
 	else if (choice == '1')
 	{
 		// have to have a character before you start game
-		
-		if (m_character != nullptr) // if character is created
+		if (m_character != nullptr)
 		{
-			Game game(m_character);
 			setStartMenu(false);
 			setStartGame(true);
-			cout << "Starting game.." << endl;
+			cout << "Starting game with the character: " << m_character->toString() << endl;
 		}
 		else
 		{
 			cout << "Create a character before starting the game!" << endl;
-			string confirm;
-			cout << "Press enter to continue.." << endl;
-			getline(cin, confirm);
 		}
+		string confirm;
+		cout << "Press enter to continue.." << endl;
+		getline(cin, confirm);
 
 	}
 	else if (choice == '2')
 	{
 		cout << "Starting character creation.. " << endl;
-		CharacterCreator characterMenu;
-		characterMenu.start(); // ?
+		if (m_character == nullptr)
+		{
+			m_character = new CharacterCreator();
+		}
+		createCharacter(m_character);
 
 	}
 	else if (choice == '3')
@@ -111,4 +111,11 @@ allow the user to see their choices more clearly*/
 void StartMenu::sleepTimer(int seconds)
 {
 	this_thread::sleep_for(chrono::seconds(seconds));
+}
+
+void StartMenu::createCharacter(CharacterCreator* character)
+{
+	character->setName("Inaire");
+	character->setClass("Fighter");
+	cout << character->toString() << endl;
 }

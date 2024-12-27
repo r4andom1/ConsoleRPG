@@ -9,11 +9,10 @@ class Game
 {
 private:
 	bool m_startGame;
-	CharacterCreator* m_character;
 
 
 public:
-	Game(CharacterCreator* character);
+	Game();
 	virtual ~Game();
 
 	// Member Functions

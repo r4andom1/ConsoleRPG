@@ -1,5 +1,6 @@
 #pragma once
 #include "Game.h"
+#include "StartMenu.h"
 #include "CharacterCreator.h"
 #include <iostream>
 #include <string> 
@@ -13,6 +14,7 @@ private:
 	bool m_startMenu;
 	bool m_startGame;
 	CharacterCreator* m_character;
+
 
 public:
 	StartMenu();
@@ -31,8 +33,9 @@ public:
 	bool isRunning() const { return this->m_startMenu; }
 	void setStartGame(bool startGame) { this->m_startGame = startGame; }
 	bool gameStarted() const { return this->m_startGame; }
-	//void setCharacterCreated(bool characterCreated) { this->m_characterCreated = characterCreated; }
-	//bool getCharacterCreated() const { return this->m_characterCreated; }
+
+	// Character Creation Specific
+	void createCharacter(CharacterCreator* character);
 
 };
 

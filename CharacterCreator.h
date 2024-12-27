@@ -15,12 +15,13 @@ public:
 
 	// Member Functions
 	void start();
+	string toString() const;
 
 	// Setters & Getters
 	string getName() const { return this->m_name; }
 	void setName(string name) { this->m_name = name; }
-	string setClass() const { return this->m_class; }
-	void getClass(string p_class) { this->m_class = p_class; }
+	string getClass() const { return this->m_class; }
+	void setClass(string p_class) { this->m_class = p_class; }
 
 };
 
