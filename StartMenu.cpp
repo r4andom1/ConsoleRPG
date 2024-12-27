@@ -9,6 +9,10 @@ StartMenu::StartMenu()
 
 StartMenu::~StartMenu()
 {
+	if (m_character == nullptr)
+	{
+		delete m_character;
+	}
 }
 /* Display options, create character etc. */
 void StartMenu::start()
@@ -60,9 +64,12 @@ void StartMenu::menuChoice(char choice)
 		// have to have a character before you start game
 		if (m_character != nullptr)
 		{
-			setStartMenu(false);
-			setStartGame(true);
+			//setStartMenu(false);
+			//setStartGame(true);
 			cout << "Starting game with the character: " << m_character->toString() << endl;
+			Game game(*m_character);
+			game.run();
+			
 		}
 		else
 		{

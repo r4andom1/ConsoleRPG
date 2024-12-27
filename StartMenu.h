@@ -36,6 +36,7 @@ public:
 
 	// Character Creation Specific
 	void createCharacter(CharacterCreator* character);
+	CharacterCreator* getCharacter() const { return this->m_character; }
 
 };
 

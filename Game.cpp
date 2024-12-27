@@ -1,7 +1,8 @@
 #include "Game.h"
 
-Game::Game()
+Game::Game(CharacterCreator& character)
 	: m_startGame(false)
+	, m_character(character)
 {
 }
 
@@ -11,13 +12,6 @@ Game::~Game()
 
 void Game::run()
 {
-	StartMenu menu;
-	menu.start();
-	if (menu.gameStarted())
-	{
-		//while (menu.)
-		//{
+	cout << m_character.toString() << endl;
 
-		//}
-	}
 }
