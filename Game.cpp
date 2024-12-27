@@ -12,6 +12,7 @@ Game::~Game()
 
 void Game::run()
 {
+	// The Character is now finally represented inside the game!
 	cout << m_character.toString() << endl;
 
 }
