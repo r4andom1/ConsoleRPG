@@ -35,8 +35,6 @@ public:
 	bool gameStarted() const { return this->m_startGame; }
 
 	// Character Creation Specific
-	void createCharacter(CharacterCreator* character);
-	CharacterCreator* getCharacter() const { return this->m_character; }
-
+	/*void createCharacter(CharacterCreator* character);*/
 };
 

@@ -16,6 +16,11 @@ public:
 	// Member Functions
 	void start();
 	string toString() const;
+	void createCharacter();
+	string chooseName() const;
+	string chooseClass() const;
+	void displayClassInfo() const;
+	char userChoice() const;
 
 	// Setters & Getters
 	string getName() const { return this->m_name; }

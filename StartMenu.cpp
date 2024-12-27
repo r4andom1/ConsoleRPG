@@ -9,10 +9,9 @@ StartMenu::StartMenu()
 
 StartMenu::~StartMenu()
 {
-	if (m_character == nullptr)
-	{
-		delete m_character;
-	}
+
+	delete m_character;
+
 }
 /* Display options, create character etc. */
 void StartMenu::start()
@@ -66,10 +65,8 @@ void StartMenu::menuChoice(char choice)
 		{
 			//setStartMenu(false);
 			//setStartGame(true);
-			cout << "Starting game with the character: " << m_character->toString() << endl;
 			Game game(*m_character);
 			game.run();
-			
 		}
 		else
 		{
@@ -86,9 +83,8 @@ void StartMenu::menuChoice(char choice)
 		if (m_character == nullptr)
 		{
 			m_character = new CharacterCreator();
+			m_character->createCharacter();
 		}
-		createCharacter(m_character);
-
 	}
 	else if (choice == '3')
 	{
@@ -96,7 +92,6 @@ void StartMenu::menuChoice(char choice)
 		cout << "Starting inventory display" << endl;
 	}
 	else
-
 	{
 		cout << "That was not a valid choice!" << endl;
 	}
@@ -120,9 +115,9 @@ void StartMenu::sleepTimer(int seconds)
 	this_thread::sleep_for(chrono::seconds(seconds));
 }
 
-void StartMenu::createCharacter(CharacterCreator* character)
-{
-	character->setName("Inaire");
-	character->setClass("Fighter");
-	cout << character->toString() << endl;
-}
+//void StartMenu::createCharacter(CharacterCreator* character)
+//{
+//	character->setName("Inaire");
+//	character->setClass("Fighter");
+//	cout << character->toString() << endl;
+//}
