@@ -103,7 +103,7 @@ void StartMenu::menuChoice(char choice)
 	if (isRunning())
 	{
 		string confirm;
-		cout << "Press enter to continue.." << endl;
+		cout << "\nPress enter to continue.." << endl;
 		getline(cin, confirm);
 	}
 }

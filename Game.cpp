@@ -14,11 +14,12 @@ void Game::run()
 {
 	// The Character is now finally represented inside the game!
 	setStartGame(true);
+	clearConsole();
 	cout << "Game started inside Game Class with: " << endl;
 	cout << m_character.toString() << endl;
 	while (isRunning())
 	{
-		cout << "type 'q' to quit" << endl;
+		cout << "type 'q' to quit to start menu" << endl;
 		char choice;
 		cin >> choice;
 		if (choice == 'q')
@@ -26,4 +27,9 @@ void Game::run()
 			setStartGame(false);
 		}
 	}
+}
+
+void Game::clearConsole()
+{
+	system("cls");
 }

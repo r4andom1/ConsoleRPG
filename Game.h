@@ -18,6 +18,7 @@ public:
 
 	// Member Functions
 	void run();
+	void clearConsole();
 
 	// Setters & Getters
 	void setStartGame(bool startGame) { this->m_startGame = startGame; }

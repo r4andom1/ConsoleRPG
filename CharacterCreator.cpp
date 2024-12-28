@@ -24,19 +24,22 @@ string CharacterCreator::toString() const
 }
 
  //Testing characterCreator for easier debugging
-//void CharacterCreator::createCharacter()
-//{
-//	setName("TestGuy");
-//	setClass("Fighter");
-//}
-
-// Final CharacterCreator function when playing the finished game.
 void CharacterCreator::createCharacter()
 {
-	setName(chooseName());
-	setClass(chooseClass());
-	setRace(chooseRace());
+	setName("TestGuy");
+	setClass("Fighter");
+	setRace("Human");
+	cout << "Test character created successfully" << endl;
 }
+
+// Final CharacterCreator function when playing the finished game.
+//void CharacterCreator::createCharacter()
+//{
+//	setName(chooseName());
+//	setClass(chooseClass());
+//	setRace(chooseRace());
+//	cout << "Player-defined character created successfully << endl;
+//}
 
 string CharacterCreator::chooseName() const
 {
