@@ -127,7 +127,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleRPG.cpp" />
+    <ClCompile Include="Cave.cpp" />
+    <ClCompile Include="CharacterCreator.cpp" />
+    <ClCompile Include="Church.cpp" />
+    <ClCompile Include="CombatOptions.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Creature.cpp" />
+    <ClCompile Include="CreatureHandler.cpp" />
+    <ClCompile Include="FighterCharacter.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameOptions.cpp" />
+    <ClCompile Include="Goblin.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Location.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RangerCharacter.cpp" />
+    <ClCompile Include="StartMenu.cpp" />
+    <ClCompile Include="WizardCharacter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cave.h" />
+    <ClInclude Include="CharacterCreator.h" />
+    <ClInclude Include="Church.h" />
+    <ClInclude Include="CombatOptions.h" />
+    <ClInclude Include="Creature.h" />
+    <ClInclude Include="CreatureHandler.h" />
+    <ClInclude Include="FighterCharacter.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameOptions.h" />
+    <ClInclude Include="Goblin.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Location.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="RangerCharacter.h" />
+    <ClInclude Include="StartMenu.h" />
+    <ClInclude Include="WizardCharacter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
