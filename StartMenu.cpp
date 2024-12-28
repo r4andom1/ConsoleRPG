@@ -21,7 +21,6 @@ void StartMenu::start()
 		displayChoices();
 		menuChoice(userChoice());
 	}
-
 }
 
 void StartMenu::displayChoices() const

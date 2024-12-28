@@ -1,6 +1,7 @@
 #pragma once
 #include "StartMenu.h"
 #include "CharacterCreator.h"
+#include "Player.h"
 #include <string>
 using namespace std;
 
@@ -18,6 +19,7 @@ public:
 
 	// Member Functions
 	void run();
+
 
 	// Setters & Getters
 	void setStartGame(bool startGame) { this->m_startGame = startGame; }
