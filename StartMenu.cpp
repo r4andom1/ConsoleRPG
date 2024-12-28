@@ -9,9 +9,7 @@ StartMenu::StartMenu()
 
 StartMenu::~StartMenu()
 {
-
 	delete m_character;
-
 }
 /* Display options, create character etc. */
 void StartMenu::start()
@@ -60,7 +58,7 @@ void StartMenu::menuChoice(char choice)
 	}
 	else if (choice == '1')
 	{
-		// have to have a character before you start game
+		// Create game object and start game here!
 		if (m_character != nullptr)
 		{
 			//setStartMenu(false);
@@ -72,10 +70,6 @@ void StartMenu::menuChoice(char choice)
 		{
 			cout << "Create a character before starting the game!" << endl;
 		}
-		string confirm;
-		cout << "Press enter to continue.." << endl;
-		getline(cin, confirm);
-
 	}
 	else if (choice == '2')
 	{
@@ -88,6 +82,17 @@ void StartMenu::menuChoice(char choice)
 	}
 	else if (choice == '3')
 	{
+		if (m_character != nullptr)
+		{
+			cout << m_character->toString() << endl;
+		}
+		else
+		{
+			cout << "You need to create a character first!" << endl;
+		}
+	}
+	else if (choice == '4')
+	{
 		// Load inventory from file and use inventory class
 		cout << "Starting inventory display" << endl;
 	}
@@ -95,7 +100,7 @@ void StartMenu::menuChoice(char choice)
 	{
 		cout << "That was not a valid choice!" << endl;
 	}
-	if (!isRunning())
+	if (isRunning())
 	{
 		string confirm;
 		cout << "Press enter to continue.." << endl;
@@ -114,10 +119,3 @@ void StartMenu::sleepTimer(int seconds)
 {
 	this_thread::sleep_for(chrono::seconds(seconds));
 }
-
-//void StartMenu::createCharacter(CharacterCreator* character)
-//{
-//	character->setName("Inaire");
-//	character->setClass("Fighter");
-//	cout << character->toString() << endl;
-//}

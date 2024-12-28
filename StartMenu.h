@@ -33,8 +33,5 @@ public:
 	bool isRunning() const { return this->m_startMenu; }
 	void setStartGame(bool startGame) { this->m_startGame = startGame; }
 	bool gameStarted() const { return this->m_startGame; }
-
-	// Character Creation Specific
-	/*void createCharacter(CharacterCreator* character);*/
 };
 

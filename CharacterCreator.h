@@ -8,9 +8,10 @@ class CharacterCreator
 private:
 	string m_name;
 	string m_class;
+	string m_race;
 
 public:
-	CharacterCreator(const string& name="?", string playerClass="?");
+	CharacterCreator(const string& name="TestGuy", const string& playerClass="Fighter", const string& race="Human");
 	virtual ~CharacterCreator();
 
 	// Member Functions
@@ -19,14 +20,19 @@ public:
 	void createCharacter();
 	string chooseName() const;
 	string chooseClass() const;
-	void displayClassInfo() const;
+	string chooseRace() const;
+	void displayRaceOptions() const;
+	void displayClassOptions() const;
 	char userChoice() const;
+
 
 	// Setters & Getters
 	string getName() const { return this->m_name; }
 	void setName(string name) { this->m_name = name; }
 	string getClass() const { return this->m_class; }
 	void setClass(string p_class) { this->m_class = p_class; }
+	string getRace() const { return this->m_race; }
+	void setRace(string race) { this->m_race = race; }
 
 };
 
