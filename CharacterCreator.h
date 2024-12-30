@@ -25,7 +25,6 @@ public:
 	void displayClassOptions() const;
 	char userChoice() const;
 
-
 	// Setters & Getters
 	string getName() const { return this->m_name; }
 	void setName(string name) { this->m_name = name; }
