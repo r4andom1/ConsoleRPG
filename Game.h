@@ -12,7 +12,6 @@ private:
 	bool m_startGame;
 	CharacterCreator& m_character;
 
-
 public:
 	Game(CharacterCreator& character);
 	virtual ~Game();

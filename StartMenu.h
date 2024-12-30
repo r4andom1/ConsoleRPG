@@ -15,7 +15,6 @@ private:
 	bool m_startGame;
 	CharacterCreator* m_character;
 
-
 public:
 	StartMenu();
 	virtual ~StartMenu();

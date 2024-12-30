@@ -1,6 +1,5 @@
 #include "CharacterCreator.h"
 
-
 CharacterCreator::CharacterCreator(const string& name, const string& playerClass, const string& race)
 	: m_name(name)
 	, m_class(playerClass)
