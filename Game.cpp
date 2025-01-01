@@ -19,6 +19,7 @@ void Game::run()
 	initPlayersClass();
 	cout << "Game started inside Game Class with: " << endl;
 	cout << m_character->toString() << endl; // Maybe enable this to work with dynamic binding?
+	gameMenu.gameMenuStarter();
 	while (isRunning())
 	{
 		cout << "type 'q' to quit to start menu" << endl;
