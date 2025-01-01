@@ -16,7 +16,7 @@ public:
 
 	// Member Functions
 	void start();
-	string toString() const;
+	virtual string toString() const;
 	void createCharacter();
 	string chooseName() const;
 	string chooseClass() const;

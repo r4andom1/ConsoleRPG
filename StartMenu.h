@@ -2,6 +2,9 @@
 #include "Game.h"
 #include "StartMenu.h"
 #include "CharacterCreator.h"
+#include "FighterCharacter.h"
+#include "RangerCharacter.h"
+#include "WizardCharacter.h"
 #include <iostream>
 #include <string> 
 #include <thread> // sleep functionality
@@ -14,6 +17,7 @@ private:
 	bool m_startMenu;
 	bool m_startGame;
 	CharacterCreator* m_character;
+	FighterCharacter* m_fightCharacter;
 
 public:
 	StartMenu();
