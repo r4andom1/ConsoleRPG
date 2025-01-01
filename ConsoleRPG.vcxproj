@@ -165,6 +165,9 @@
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="WizardCharacter.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Inventory.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
