@@ -70,9 +70,7 @@ void StartMenu::menuChoice(char choice)
 			game.run();
 		}
 		else
-		{
 			cout << "Create a character before starting the game!" << endl;
-		}
 	}
 	else if (choice == '2')
 	{
@@ -87,13 +85,9 @@ void StartMenu::menuChoice(char choice)
 	else if (choice == '3')
 	{
 		if (m_character != nullptr)
-		{
 			cout << m_character->toString() << endl;
-		}
 		else
-		{
 			cout << "You need to create a character first!" << endl;
-		}
 	}
 	else if (choice == '4')
 	{
