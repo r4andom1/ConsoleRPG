@@ -2,7 +2,9 @@
 #include "StartMenu.h"
 #include "CharacterCreator.h"
 #include "Player.h"
+#include "GameOptions.h"
 #include <string>
+
 using namespace std;
 
 
@@ -11,6 +13,7 @@ class Game
 private:
 	bool m_startGame;
 	CharacterCreator& m_character;
+	GameOptions gameMenu;
 
 public:
 	Game(CharacterCreator& character);

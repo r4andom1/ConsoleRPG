@@ -16,6 +16,7 @@ void Game::run()
 	setStartGame(true);
 	cout << "Game started inside Game Class with: " << endl;
 	cout << m_character.toString() << endl;
+	gameMenu.gameMenuStarter();
 	while (isRunning())
 	{
 		cout << "type 'q' to quit" << endl;
