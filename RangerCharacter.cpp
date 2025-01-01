@@ -1,1 +1,20 @@
 #include "RangerCharacter.h"
+
+RangerCharacter::RangerCharacter(const string& name, const string& pClass, const string& race, int maxHP, int currentHP, int baseDamage)
+	: CharacterCreator(name, pClass, race)
+	, m_maxHP(maxHP)
+	, m_currentHP(currentHP)
+	, m_baseDamage(baseDamage)
+{
+}
+
+RangerCharacter::~RangerCharacter()
+{
+}
+
+string RangerCharacter::toString() const
+{
+	return CharacterCreator::toString() + "\nHealth: " + to_string(m_currentHP) + "/" + to_string(m_maxHP) +
+		"\nDamage: " + to_string(m_baseDamage);
+
+}

@@ -4,6 +4,7 @@ StartMenu::StartMenu()
 	: m_startMenu(false)
 	, m_startGame(false)
 	, m_character(nullptr)
+	, m_fightCharacter(nullptr)
 {
 }
 
@@ -57,18 +58,19 @@ void StartMenu::menuChoice(char choice)
 	}
 	else if (choice == '1')
 	{
-		// Create game object and start game here!
+		// Create game object, pass in the players character and start game here!
 		if (m_character != nullptr)
 		{
-			//setStartMenu(false);
-			//setStartGame(true);
+			if (m_character->getClass() == "Fighter")
+			{
+				// Add name, race etc.
+				Game game(*m_fightCharacter);
+			}
 			Game game(*m_character);
 			game.run();
 		}
 		else
-		{
 			cout << "Create a character before starting the game!" << endl;
-		}
 	}
 	else if (choice == '2')
 	{
@@ -77,18 +79,15 @@ void StartMenu::menuChoice(char choice)
 		{
 			m_character = new CharacterCreator();
 			m_character->createCharacter();
+			// check if i can pass this character or smth so i can send a player of that class into game
 		}
 	}
 	else if (choice == '3')
 	{
 		if (m_character != nullptr)
-		{
 			cout << m_character->toString() << endl;
-		}
 		else
-		{
 			cout << "You need to create a character first!" << endl;
-		}
 	}
 	else if (choice == '4')
 	{
@@ -102,7 +101,7 @@ void StartMenu::menuChoice(char choice)
 	if (isRunning())
 	{
 		string confirm;
-		cout << "Press enter to continue.." << endl;
+		cout << "\nPress enter to continue.." << endl;
 		getline(cin, confirm);
 	}
 }
