@@ -132,7 +132,6 @@
     <ClCompile Include="Church.cpp" />
     <ClCompile Include="CombatOptions.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Creature.cpp" />
     <ClCompile Include="CreatureHandler.cpp" />
     <ClCompile Include="FighterCharacter.cpp" />
     <ClCompile Include="Game.cpp" />
