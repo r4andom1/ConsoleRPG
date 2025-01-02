@@ -60,11 +60,6 @@ void StartMenu::menuChoice(char choice)
 		// Create game object, pass in the players character and start game here!
 		if (m_character != nullptr)
 		{
-			if (m_character->getClass() == "Fighter")
-			{
-				// Add name, race etc.
-				Game game(*m_character);
-			}
 			Game game(*m_character);
 			game.run();
 		}
@@ -78,7 +73,6 @@ void StartMenu::menuChoice(char choice)
 		{
 			m_character = new CharacterCreator();
 			m_character->createCharacter();
-			// check if i can pass this character or smth so i can send a player of that class into game
 		}
 	}
 	else if (choice == '3')

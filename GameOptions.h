@@ -1,10 +1,11 @@
 #pragma once
 
 #include "Location.h"
-#include <vector>
-#include <memory>
 #include "Item.h"
 #include "Inventory.h"
+#include "CharacterCreator.h"
+#include <vector>
+#include <memory>
 
 using namespace std;
 
@@ -13,15 +14,27 @@ class GameOptions
 private:
 	vector<shared_ptr<Location>> locations;
 	shared_ptr<Location> currentLocation;
+	CharacterCreator* m_character;
+	bool m_optionsRunning;
 
 public:
-	GameOptions();
+	// Constructor
+	GameOptions(CharacterCreator& character);
 
+	// Destructor
+
+	// Member Functions
+	virtual ~GameOptions();
 	void travel();
 	void inventory();
-	void showStatistiks();
+	void showCharacterStats();
 	void showCurrentLocation() const;
 	void gameMenuStarter();
 	void manageInventory(Inventory& inventory);
+
+	// Getters & Setters
+	bool getIsRunning() const { return this->m_optionsRunning; }
+	void setIsRunning(bool isRunning) { this->m_optionsRunning = isRunning; }
+
 
 };

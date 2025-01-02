@@ -7,7 +7,9 @@
 
 using namespace std;
 
-GameOptions::GameOptions()
+GameOptions::GameOptions(CharacterCreator& character)
+    : m_character(&character)
+    , m_optionsRunning(false)
 {
     // Available locations
     locations.push_back(make_unique<Church>());
@@ -15,6 +17,10 @@ GameOptions::GameOptions()
 
     // Default location
     currentLocation = make_unique<Church>();
+}
+
+GameOptions::~GameOptions()
+{
 }
 
 void GameOptions::travel()
@@ -45,9 +51,11 @@ void GameOptions::inventory()
     manageInventory(inventory);
 }
 
-void GameOptions::showStatistiks()
+void GameOptions::showCharacterStats()
 {
     cout << "Checking stats...\n";
+    cout << m_character->toString() << endl;
+    // Display characters stats here, try passing it in as an argument or smth?
 }
 
 void GameOptions::showCurrentLocation() const
@@ -83,7 +91,7 @@ void GameOptions::gameMenuStarter()
             inventory();
         }
         else if (choice == "3") {
-            showStatistiks();
+            showCharacterStats();
         }
         else if (choice == "4") {
             showCurrentLocation();
