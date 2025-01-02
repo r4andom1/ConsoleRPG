@@ -28,7 +28,7 @@ void Game::clearConsole()
 	system("cls");
 }
 
-/* */
+/* Initializes the correct CharacterClass inside the Game */
 void Game::initPlayersClass()
 {
 	string name = m_character->getName();

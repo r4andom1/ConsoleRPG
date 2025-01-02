@@ -33,7 +33,7 @@ public:
 	void manageInventory(Inventory& inventory);
 
 	// Getters & Setters
-	bool getIsRunning() const { return this->m_optionsRunning; }
+	bool isRunning() const { return this->m_optionsRunning; }
 	void setIsRunning(bool isRunning) { this->m_optionsRunning = isRunning; }
 
 

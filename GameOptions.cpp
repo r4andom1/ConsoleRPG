@@ -72,7 +72,8 @@ void GameOptions::showCurrentLocation() const
 
 void GameOptions::gameMenuStarter()
 {
-    while (true) {
+    setIsRunning(true);
+    while (isRunning()) {
         cout << "\nGame Menu:\n";
         cout << "1. Travel\n";
         cout << "2. Open Inventory\n";
@@ -81,6 +82,7 @@ void GameOptions::gameMenuStarter()
         cout << "q. Exit\n";
         cout << "Enter your choice: ";
 
+        // Change to take char instead (copy startmenu function)
         string choice;
         cin >> choice;
 
@@ -98,10 +100,16 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == "q") {
             cout << "Exiting game...\n";
-            break;
+            setIsRunning(false);
         }
         else {
             cout << "Invalid choice! Try again.\n";
+        }
+        if (isRunning())
+        {
+            string confirm;
+            cout << "\nPress enter to continue.." << endl;
+            getline(cin, confirm);
         }
     }
 }
