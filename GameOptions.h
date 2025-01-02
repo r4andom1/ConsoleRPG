@@ -22,9 +22,9 @@ public:
 	GameOptions(CharacterCreator& character);
 
 	// Destructor
+	virtual ~GameOptions();
 
 	// Member Functions
-	virtual ~GameOptions();
 	void travel();
 	void inventory();
 	void showCharacterStats();

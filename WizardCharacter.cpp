@@ -1,10 +1,8 @@
 #include "WizardCharacter.h"
 
-WizardCharacter::WizardCharacter(const string& name, const string& pClass, const string& race, int maxHP, int currentHP, int baseDamage)
-	: CharacterCreator(name, pClass, race)
-	, m_maxHP(maxHP)
-	, m_currentHP(currentHP)
-	, m_baseDamage(baseDamage)
+WizardCharacter::WizardCharacter(const string& name, const string& pClass, const string& race, int maxHP, int currentHP, int damage, int mana)
+	: CharacterCreator(name, pClass, race, maxHP, currentHP, damage)
+	, m_mana(mana)
 {
 }
 
@@ -14,7 +12,14 @@ WizardCharacter::~WizardCharacter()
 
 string WizardCharacter::toString() const
 {
-	return CharacterCreator::toString() + "\nHealth: " + to_string(m_currentHP) + "/" + to_string(m_maxHP) +
-		"\nDamage: " + to_string(m_baseDamage);
+	return CharacterCreator::toString() +
+		"\nMana: " + to_string(m_mana);
+}
 
+int WizardCharacter::castFireBall()
+{
+	int fireBallDamage = 10;
+	cout << "Casting fireball for: " << fireBallDamage << endl;
+	this->m_mana -= 3;
+	return fireBallDamage;
 }

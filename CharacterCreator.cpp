@@ -1,9 +1,14 @@
 #include "CharacterCreator.h"
 
-CharacterCreator::CharacterCreator(const string& name, const string& playerClass, const string& race)
+CharacterCreator::CharacterCreator(const string& name, const string& playerClass, const string& race,
+	int maxHP, int currentHP, int damage, int mana)
 	: m_name(name)
 	, m_class(playerClass)
 	, m_race(race)
+	, m_maxHP(maxHP)
+	, m_currentHP(currentHP)
+	, m_damage(damage)
+	, m_mana(mana)
 {
 }
 
@@ -19,7 +24,9 @@ string CharacterCreator::toString() const
 {
 	return "\nName: " + m_name +
 		   "\nClass: " + m_class +
-		   "\nRace: " + m_race;
+		   "\nRace: " + m_race +
+		   "\nHealth: " + to_string(m_currentHP) + "/" + to_string(m_maxHP) +
+	       "\nDamage: " + to_string(m_damage);
 }
 
  //Testing characterCreator for easier debugging

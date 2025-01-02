@@ -9,7 +9,6 @@ Game::Game(CharacterCreator& character)
 Game::~Game()
 {
 	delete m_character;
-	// delete m_gameOptions?
 }
 
 void Game::run()
@@ -17,8 +16,6 @@ void Game::run()
 	setStartGame(true);
 	clearConsole();
 	initPlayersClass();
-	cout << "Game started inside Game Class with: " << endl;
-	cout << m_character->toString() << endl;
 	GameOptions gameOptions(*m_character);
 	gameOptions.gameMenuStarter();
 }

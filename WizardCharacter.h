@@ -6,16 +6,15 @@ using namespace std;
 class WizardCharacter : public CharacterCreator
 {
 private:
-	int m_maxHP;
-	int m_currentHP;
-	int m_baseDamage;
+	int m_mana;
 
 public:
-	WizardCharacter(const string& name = "?", const string& pClass = "Wizard", const string& race = "?", int maxHP = 5, int currentHP = 5, int baseDamage = 5);
+	WizardCharacter(const string& name="?", const string& pClass="Wizard", const string& race="?", int maxHP=5, int currentHP=5, int damage=5, int mana=10);
 	virtual ~WizardCharacter();
 
 	// Member Functions
 	string toString() const override;
+	int castFireBall();
 
 	// Getters & Setters
 

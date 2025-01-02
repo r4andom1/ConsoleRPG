@@ -79,7 +79,8 @@ void GameOptions::gameMenuStarter()
         cout << "2. Open Inventory\n";
         cout << "3. Check Stats\n";
         cout << "4. Show Current Location\n";
-        cout << "q. Exit\n";
+        cout << "5. Combat testing \n"; // testing combat feature
+        cout << "q. Exit to Main Menu\n";
         cout << "Enter your choice: ";
 
         // Change to take char instead (copy startmenu function)
@@ -97,6 +98,10 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == "4") {
             showCurrentLocation();
+        }
+        else if (choice == "5") // testing combat feature
+        {
+
         }
         else if (choice == "q") {
             cout << "Exiting game...\n";
