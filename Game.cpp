@@ -16,10 +16,12 @@ void Game::run()
 	setStartGame(true);
 	clearConsole();
 	initPlayersClass();
+	// This is just test code. Will replace with GameOptions class.
 	cout << "Game started inside Game Class with: " << endl;
 	cout << m_character->toString() << endl;
 	while (isRunning())
 	{
+		// This is just test code. Will replace with GameOptions class.
 		cout << "type 'q' to quit to start menu" << endl;
 		cout << "type '3' to display character stats" << endl;
 		char choice;
@@ -30,6 +32,7 @@ void Game::run()
 		}
 		else if (choice == '3')
 		{
+			
 			cout << m_character->toString() << endl;
 		}
 	}
