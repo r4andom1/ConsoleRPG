@@ -17,7 +17,6 @@ private:
 	bool m_startMenu;
 	bool m_startGame;
 	CharacterCreator* m_character;
-	FighterCharacter* m_fightCharacter;
 
 public:
 	StartMenu();

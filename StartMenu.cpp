@@ -4,7 +4,6 @@ StartMenu::StartMenu()
 	: m_startMenu(false)
 	, m_startGame(false)
 	, m_character(nullptr)
-	, m_fightCharacter(nullptr)
 {
 }
 
@@ -64,7 +63,7 @@ void StartMenu::menuChoice(char choice)
 			if (m_character->getClass() == "Fighter")
 			{
 				// Add name, race etc.
-				Game game(*m_fightCharacter);
+				Game game(*m_character);
 			}
 			Game game(*m_character);
 			game.run();
