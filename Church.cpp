@@ -3,7 +3,7 @@
 
 void Church::drawImage() const
 {
-    cout << "      .\n";
+    cout << "        .\n"; 
     cout << "      .' '.\n";
     cout << "     .'  | `.\n";
     cout << "   .'    |   `.\n";
