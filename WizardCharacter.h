@@ -11,7 +11,7 @@ private:
 	int m_baseDamage;
 
 public:
-	WizardCharacter(const string& name = "?", const string& pClass = "?", const string& race = "?", int maxHP = 5, int currentHP = 5, int baseDamage = 5);
+	WizardCharacter(const string& name = "?", const string& pClass = "Wizard", const string& race = "?", int maxHP = 5, int currentHP = 5, int baseDamage = 5);
 	virtual ~WizardCharacter();
 
 	// Member Functions
