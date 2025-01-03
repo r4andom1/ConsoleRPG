@@ -16,10 +16,22 @@ string WizardCharacter::toString() const
 		"\nMana: " + to_string(m_mana);
 }
 
-int WizardCharacter::castFireBall()
+int WizardCharacter::attack()
 {
-	int fireBallDamage = 10;
-	cout << "Casting fireball for: " << fireBallDamage << endl;
-	this->m_mana -= 3;
-	return fireBallDamage;
+	if (m_mana >= 3)
+	{
+		int fireBallDamage = 10;
+		cout << "Wizard casting fireball for: " << fireBallDamage << " damage!" << endl;
+		cout << "-3 mana" << endl;
+		this->m_mana -= 3;
+		return fireBallDamage;
+	}
+	else
+	{
+		int basicAttack = getDamage();
+		cout << "Wizard attacks with his staff for: " << basicAttack << " damage!" << endl;
+		return basicAttack;
+	}
 }
+
+

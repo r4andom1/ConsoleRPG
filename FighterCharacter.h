@@ -1,5 +1,6 @@
 #pragma once
 #include "CharacterCreator.h"
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -13,6 +14,7 @@ public:
 
 	// Member Functions
 	string toString() const override;
+	int attack() override;
 
 	// Getters & Setters
 

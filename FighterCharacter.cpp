@@ -14,3 +14,9 @@ string FighterCharacter::toString() const
 	return CharacterCreator::toString();
 	// additional Fighter stats?
 }
+
+int FighterCharacter::attack()
+{
+	cout << "Fighter attacks for: " << getDamage() << " damage!" << endl;
+	return CharacterCreator::attack();
+}

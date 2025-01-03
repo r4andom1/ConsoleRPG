@@ -32,6 +32,7 @@ public:
 	void displayRaceOptions() const;
 	void displayClassOptions() const;
 	char userChoice() const;
+	virtual int attack();
 
 	// Setters & Getters
 	string getName() const { return this->m_name; }
@@ -48,10 +49,6 @@ public:
 	void setDamage(int damage) { this->m_damage = damage; }
 	int getMana() const { return this->m_mana; }
 	void setMana(int mana) { this->m_mana = mana; }
-	
-	// Maybe implement so all character classes have a hp, damage, mana here etc here with variables and getters & setters
-	// But only show mana on Wizard toString for example.
-	// Also implement default values to damage, health, mana etc here. Also level up??
 
 };
 

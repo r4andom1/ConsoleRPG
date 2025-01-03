@@ -55,7 +55,6 @@ void GameOptions::showCharacterStats()
 {
     cout << "Checking stats...\n";
     cout << m_character->toString() << endl;
-    // Display characters stats here, try passing it in as an argument or smth?
 }
 
 void GameOptions::showCurrentLocation() const
@@ -101,7 +100,7 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == "5") // testing combat feature
         {
-
+            m_character->attack();
         }
         else if (choice == "q") {
             cout << "Exiting game...\n";

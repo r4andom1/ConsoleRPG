@@ -1,6 +1,7 @@
 #pragma once
 #include "CharacterCreator.h"
 #include <string>
+#include <iostream>
 using namespace std;
 
 class WizardCharacter : public CharacterCreator
@@ -14,7 +15,7 @@ public:
 
 	// Member Functions
 	string toString() const override;
-	int castFireBall();
+	int attack() override;
 
 	// Getters & Setters
 

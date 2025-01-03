@@ -127,3 +127,8 @@ char CharacterCreator::userChoice() const
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	return choice;
 }
+
+int CharacterCreator::attack()
+{
+	return m_damage;
+}
