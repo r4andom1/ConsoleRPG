@@ -99,21 +99,26 @@ void GameOptions::gameMenuStarter()
 }
 
 void GameOptions::manageInventory(Inventory& inventory) {
-    int choice;
-    do {
+    bool isRunning = true;
+
+    while (isRunning) {
         cout << "\n--- Inventory Menu ---\n";
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
         cout << "3. Remove Item\n";
-        cout << "4. Save and Exit\n";
-        cout << "Choose an option: ";
-        cin >> choice;
+        cout << "q. Exit Inventory\n";
 
-        if (choice == 1) {
+        char choice = userChoice(); // Get user input
+
+        if (choice == 'q') {
+            inventory.saveToFile();
+            cout << "Inventory saved. Exiting...\n";
+            isRunning = false;
+        }
+        else if (choice == '1') {
             inventory.displayInventory();
         }
-        else if (choice == 2) {
-            cin.ignore();
+        else if (choice == '2') {
             string name, description;
             cout << "Enter item name: ";
             getline(cin, name);
@@ -121,8 +126,7 @@ void GameOptions::manageInventory(Inventory& inventory) {
             getline(cin, description);
             inventory.addItem(Item(name, description));
         }
-        else if (choice == 3) {
-            cin.ignore();
+        else if (choice == '3') {
             string name;
             cout << "Enter item name to remove: ";
             getline(cin, name);
@@ -133,12 +137,21 @@ void GameOptions::manageInventory(Inventory& inventory) {
                 cout << name << " not found in inventory.\n";
             }
         }
-        else if (choice == 4) {
-            inventory.saveToFile();
-            cout << "Inventory saved. Exiting...\n";
-        }
         else {
             cout << "Invalid choice. Try again.\n";
         }
-    } while (choice != 4);
+    }
+}
+
+char GameOptions::userChoice() const
+{
+    cout << "Enter your choice : " << endl;
+    char choice{};
+    cin >> choice;
+    if (!cin)
+    {
+        cin.clear();
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    return choice;
 }

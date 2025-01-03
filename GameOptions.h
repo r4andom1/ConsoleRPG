@@ -23,5 +23,6 @@ public:
 	void showCurrentLocation() const;
 	void gameMenuStarter();
 	void manageInventory(Inventory& inventory);
+	char userChoice() const;
 
 };
