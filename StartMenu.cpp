@@ -74,6 +74,8 @@ void StartMenu::menuChoice(char choice)
 			m_character = new CharacterCreator();
 			m_character->createCharacter();
 		}
+		else
+			cout << "You already have a character created! " << endl;
 	}
 	else if (choice == '3')
 	{

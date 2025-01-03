@@ -13,6 +13,7 @@ public:
 
 	// Member Functions
 	string toString() const override;
+	int attack() override;
 
 	// Getters & Setters
 

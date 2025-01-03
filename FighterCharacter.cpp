@@ -17,6 +17,7 @@ string FighterCharacter::toString() const
 
 int FighterCharacter::attack()
 {
-	cout << "Fighter attacks for: " << getDamage() << " damage!" << endl;
-	return CharacterCreator::attack();
+	int basicAttack = getDamage();
+	cout << "Fighter attacks for: " << basicAttack << " damage!" << endl;
+	return basicAttack;
 }

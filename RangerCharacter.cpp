@@ -15,3 +15,10 @@ string RangerCharacter::toString() const
 	// Additional Ranger stats?
 
 }
+
+int RangerCharacter::attack()
+{
+	int basicAttack = getDamage();
+	cout << "Ranger draws his bow and hits for: " << basicAttack << " damage!" << endl;
+	return basicAttack;
+}

@@ -18,6 +18,8 @@ public:
 	int attack() override;
 
 	// Getters & Setters
+	int getMana() const { return this->m_mana; }
+	void setMana(int mana) { this->m_mana = mana; }
 
 };
 
