@@ -13,9 +13,15 @@ void Inventory::addItem(const Item& item) {
     items.push_back(item);
 }
 
-bool Inventory::removeItem(const string& itemName)
+bool Inventory::dropItem(const string& itemName)
 {
-    return 0;
+    for (auto it = items.begin(); it != items.end(); ++it) {
+        if (it->getName() == itemName) {
+            items.erase(it);
+            return true;
+        }
+    }
+    return false;
 }
 
 void Inventory::displayInventory() const {

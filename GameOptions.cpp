@@ -105,7 +105,7 @@ void GameOptions::manageInventory(Inventory& inventory) {
         cout << "\n--- Inventory Menu ---\n";
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
-        cout << "3. Remove Item\n";
+        cout << "3. Drop Item\n";
         cout << "q. Exit Inventory\n";
 
         char choice = userChoice(); // Get user input
@@ -128,10 +128,10 @@ void GameOptions::manageInventory(Inventory& inventory) {
         }
         else if (choice == '3') {
             string name;
-            cout << "Enter item name to remove: ";
+            cout << "Enter item name to drop: ";
             getline(cin, name);
-            if (inventory.removeItem(name)) {
-                cout << name << " removed from inventory.\n";
+            if (inventory.dropItem(name)) {
+                cout << name << " drop from inventory.\n";
             }
             else {
                 cout << name << " not found in inventory.\n";
