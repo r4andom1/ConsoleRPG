@@ -22,4 +22,6 @@ public:
     // File operations
     void saveToFile() const;
     void loadFromFile();
+    void createHealingPotion();
+    void useHealingPotion();
 };

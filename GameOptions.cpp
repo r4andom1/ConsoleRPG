@@ -1,7 +1,6 @@
 #include "GameOptions.h"
 #include "Church.h"
 #include "Cave.h"
-#include "Inventory.h"
 #include <iostream>
 #include <string>
 
@@ -106,6 +105,8 @@ void GameOptions::manageInventory(Inventory& inventory) {
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
         cout << "3. Drop Item\n";
+        cout << "4. Use Item\n";
+        cout << "5. Add HP Potion\n";
         cout << "q. Exit Inventory\n";
 
         char choice = userChoice(); // Get user input
@@ -131,17 +132,35 @@ void GameOptions::manageInventory(Inventory& inventory) {
             cout << "Enter item name to drop: ";
             getline(cin, name);
             if (inventory.dropItem(name)) {
-                cout << name << " drop from inventory.\n";
+                cout << name << " dropped from inventory.\n";
             }
             else {
                 cout << name << " not found in inventory.\n";
             }
         }
+        else if (choice == '4') {
+            cout << "Enter item name to use: ";
+            string name;
+            getline(cin, name);
+
+            if (name == "Healing Potion") {
+                inventory.useHealingPotion();
+            }
+            else {
+                cout << "This item cannot be used." << endl;
+            }
+        }
+        else if (choice == '5') {
+            inventory.createHealingPotion();
+        }
+
         else {
             cout << "Invalid choice. Try again.\n";
         }
     }
 }
+
+
 
 char GameOptions::userChoice() const
 {
