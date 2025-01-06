@@ -90,7 +90,7 @@ void GameOptions::gameMenuStarter()
         else if (choice == '4') {
             showCurrentLocation();
         }
-        else if (choice == '5') // testing combat feature
+        else if (choice == '5') // testing exploration feature
         {
             // create CombatOptions object here?
             LocationOptions locationOptions;
