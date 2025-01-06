@@ -72,37 +72,29 @@ void GameOptions::showCurrentLocation() const
 void GameOptions::gameMenuStarter()
 {
     setIsRunning(true);
-    while (isRunning()) {
-        cout << "\nGame Menu:\n";
-        cout << "1. Travel\n";
-        cout << "2. Open Inventory\n";
-        cout << "3. Check Stats\n";
-        cout << "4. Show Current Location\n";
-        cout << "5. Combat testing \n"; // testing combat feature
-        cout << "q. Exit to Main Menu\n";
-        cout << "Enter your choice: ";
+    while (isRunning()) 
+    {
+        displayGameOptions();
 
-        // Change to take char instead (copy startmenu function)
-        string choice;
-        cin >> choice;
+        char choice = userChoice();
 
-        if (choice == "1") {
+        if (choice == '1') {
             travel();
         }
-        else if (choice == "2") {
+        else if (choice == '2') {
             inventory();
         }
-        else if (choice == "3") {
+        else if (choice == '3') {
             showCharacterStats();
         }
-        else if (choice == "4") {
+        else if (choice == '4') {
             showCurrentLocation();
         }
-        else if (choice == "5") // testing combat feature
+        else if (choice == '5') // testing combat feature
         {
             m_character->attack();
         }
-        else if (choice == "q") {
+        else if (choice == 'q') {
             cout << "Exiting game...\n";
             setIsRunning(false);
         }
@@ -113,7 +105,9 @@ void GameOptions::gameMenuStarter()
         {
             string confirm;
             cout << "\nPress enter to continue.." << endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             getline(cin, confirm);
+            clearConsole();
         }
     }
 }
@@ -121,6 +115,7 @@ void GameOptions::gameMenuStarter()
 void GameOptions::manageInventory(Inventory& inventory) {
     int choice;
     do {
+        clearConsole();
         cout << "\n--- Inventory Menu ---\n";
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
@@ -161,4 +156,35 @@ void GameOptions::manageInventory(Inventory& inventory) {
             cout << "Invalid choice. Try again.\n";
         }
     } while (choice != 4);
+}
+
+void GameOptions::displayGameOptions() const
+{
+    cout << "\nGame Menu:\n";
+    cout << "1. Travel\n";
+    cout << "2. Open Inventory\n";
+    cout << "3. Check Stats\n";
+    cout << "4. Show Current Location\n";
+    cout << "5. Combat testing \n"; // testing combat feature
+    cout << "q. Exit to Main Menu\n";
+    cout << "Enter your choice: ";
+}
+
+/* Clears console window */
+void GameOptions::clearConsole()
+{
+    system("cls");
+}
+
+char GameOptions::userChoice() const
+{
+    cout << "Enter your choice : " << endl;
+    char choice{};
+    cin >> choice;
+    if (!cin)
+    {
+        cin.clear();
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    return choice;
 }

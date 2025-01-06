@@ -31,6 +31,9 @@ public:
 	void showCurrentLocation() const;
 	void gameMenuStarter();
 	void manageInventory(Inventory& inventory);
+	void displayGameOptions() const;
+	void clearConsole();
+	char userChoice() const;
 
 	// Getters & Setters
 	bool isRunning() const { return this->m_optionsRunning; }
