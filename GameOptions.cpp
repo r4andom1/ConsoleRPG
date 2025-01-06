@@ -43,7 +43,6 @@ void GameOptions::travel()
     }
 }
 
-
 void GameOptions::inventory()
 {
     cout << "Opening inventory...\n";
@@ -74,6 +73,8 @@ void GameOptions::gameMenuStarter()
     setIsRunning(true);
     while (isRunning()) 
     {
+        currentLocation->drawImage();
+        cout << currentLocation->getName() << endl;
         displayGameOptions();
 
         char choice = userChoice();
@@ -117,7 +118,7 @@ void GameOptions::gameMenuStarter()
         {
             string confirm;
             cout << "\nPress enter to continue.." << endl;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            //cin.ignore(numeric_limits<streamsize>::max(), '\n'); // messes with input buffer? Maybe have it after getline
             getline(cin, confirm);
             clearConsole();
         }
@@ -178,7 +179,6 @@ void GameOptions::displayGameOptions() const
     cout << "4. Show Current Location\n";
     cout << "5. Explore your current location \n"; // testing combat feature
     cout << "q. Exit to Main Menu\n";
-    cout << "Enter your choice: ";
 }
 
 /* Clears console window */
@@ -189,7 +189,7 @@ void GameOptions::clearConsole()
 
 char GameOptions::userChoice() const
 {
-    cout << "Enter your choice : " << endl;
+    cout << "\nEnter your choice : " << endl;
     char choice{};
     cin >> choice;
     if (!cin)
