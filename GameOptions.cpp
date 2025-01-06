@@ -92,7 +92,18 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == '5') // testing combat feature
         {
-            m_character->attack();
+            // create CombatOptions object here?
+            if (currentLocation->getName() == "Goblin Hollow")
+            {
+                // Do combat related stuff
+                m_character->attack();
+            }
+            else if (currentLocation->getName() == "Church of Radiant Dawn")
+            {
+                // Do Exploration / talking to npcs related stuff here?
+
+            }
+            
         }
         else if (choice == 'q') {
             cout << "Exiting game...\n";
@@ -164,7 +175,7 @@ void GameOptions::displayGameOptions() const
     cout << "2. Open Inventory\n";
     cout << "3. Check Stats\n";
     cout << "4. Show Current Location\n";
-    cout << "5. Combat testing \n"; // testing combat feature
+    cout << "5. Explore your current location \n"; // testing combat feature
     cout << "q. Exit to Main Menu\n";
     cout << "Enter your choice: ";
 }
