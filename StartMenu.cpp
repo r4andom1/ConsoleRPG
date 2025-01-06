@@ -88,6 +88,8 @@ void StartMenu::menuChoice(char choice)
 	{
 		// Load inventory from file and use inventory class
 		cout << "Starting inventory display" << endl;
+		Inventory inventory;
+		inventory.displayInventory();
 	}
 	else
 	{
