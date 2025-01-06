@@ -4,6 +4,7 @@
 #include "Item.h"
 #include "Inventory.h"
 #include "CharacterCreator.h"
+#include "LocationOptions.h"
 #include <vector>
 #include <memory>
 

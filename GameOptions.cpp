@@ -93,6 +93,7 @@ void GameOptions::gameMenuStarter()
         else if (choice == '5') // testing combat feature
         {
             // create CombatOptions object here?
+            LocationOptions locationOptions;
             if (currentLocation->getName() == "Goblin Hollow")
             {
                 // Do combat related stuff
