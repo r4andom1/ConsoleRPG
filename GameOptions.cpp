@@ -117,7 +117,7 @@ void GameOptions::gameMenuStarter()
         {
             string confirm;
             cout << "\nPress enter to continue.." << endl;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            //cin.ignore(numeric_limits<streamsize>::max(), '\n'); // This only seems to mess up the input buffer?
             getline(cin, confirm);
             clearConsole();
         }
@@ -127,7 +127,8 @@ void GameOptions::gameMenuStarter()
 void GameOptions::manageInventory(Inventory& inventory) {
     bool isRunning = true;
 
-    while (isRunning) {
+    while (isRunning) 
+    {
         cout << "\n--- Inventory Menu ---\n";
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
@@ -178,7 +179,6 @@ void GameOptions::displayGameOptions() const
     cout << "4. Show Current Location\n";
     cout << "5. Explore your current location \n"; // testing combat feature
     cout << "q. Exit to Main Menu\n";
-    cout << "Enter your choice: ";
 }
 
 /* Clears console window */
@@ -189,7 +189,7 @@ void GameOptions::clearConsole()
 
 char GameOptions::userChoice() const
 {
-    cout << "Enter your choice : " << endl;
+    cout << "\nEnter your choice : " << endl;
     char choice{};
     cin >> choice;
     if (!cin)
