@@ -16,10 +16,8 @@ void Game::run()
 	setStartGame(true);
 	clearConsole();
 	initPlayersClass();
-	// This is just test code. Will replace with GameOptions class.
-	cout << "Game started inside Game Class with: " << endl;
-	cout << m_character->toString() << endl;
-	gameoptions.gameMenuStarter();
+	GameOptions gameOptions(*m_character);
+	gameOptions.gameMenuStarter();
 }
 
 void Game::clearConsole()
@@ -27,7 +25,7 @@ void Game::clearConsole()
 	system("cls");
 }
 
-/* */
+/* Initializes the correct CharacterClass inside the Game */
 void Game::initPlayersClass()
 {
 	string name = m_character->getName();

@@ -14,8 +14,6 @@ class Game
 private:
 	bool m_startGame;
 	CharacterCreator* m_character; // changed these away from reference, maybe bad?
-	GameOptions gameoptions;
-
 
 public:
 	Game(CharacterCreator& character);

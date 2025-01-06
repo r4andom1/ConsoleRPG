@@ -25,12 +25,12 @@ void Church::drawImage() const
 
 string Church::getName() const
 {
-    return "Churtch of Radiant Dawn";
+    return "Church of Radiant Dawn";
 }
 
 string Church::areaDescription() const
 {
-    return "A beacon of light in a troubled land, this churtch radiates an aura of warmth and healing. "
+    return "A beacon of light in a troubled land, this church radiates an aura of warmth and healing. "
         "Pilgrims travel from distant realms to seek blessings from its revered High Priest, "
         "though dark forces conspire to shroud its holy light.";
 }

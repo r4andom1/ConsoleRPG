@@ -60,11 +60,6 @@ void StartMenu::menuChoice(char choice)
 		// Create game object, pass in the players character and start game here!
 		if (m_character != nullptr)
 		{
-			if (m_character->getClass() == "Fighter")
-			{
-				// Add name, race etc.
-				Game game(*m_character);
-			}
 			Game game(*m_character);
 			game.run();
 		}
@@ -78,8 +73,9 @@ void StartMenu::menuChoice(char choice)
 		{
 			m_character = new CharacterCreator();
 			m_character->createCharacter();
-			// check if i can pass this character or smth so i can send a player of that class into game
 		}
+		else
+			cout << "You already have a character created! " << endl;
 	}
 	else if (choice == '3')
 	{
@@ -92,6 +88,8 @@ void StartMenu::menuChoice(char choice)
 	{
 		// Load inventory from file and use inventory class
 		cout << "Starting inventory display" << endl;
+		Inventory inventory;
+		inventory.displayInventory();
 	}
 	else
 	{

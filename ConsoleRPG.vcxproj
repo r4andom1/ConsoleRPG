@@ -131,6 +131,7 @@
     <ClCompile Include="CharacterCreator.cpp" />
     <ClCompile Include="Church.cpp" />
     <ClCompile Include="CombatOptions.cpp" />
+    <ClCompile Include="LocationOptions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CreatureHandler.cpp" />
     <ClCompile Include="FighterCharacter.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Location.h" />
+    <ClInclude Include="LocationOptions.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RangerCharacter.h" />
     <ClInclude Include="StartMenu.h" />

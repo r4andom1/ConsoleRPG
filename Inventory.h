@@ -16,7 +16,7 @@ public:
 
     // Inventory operations
     void addItem(const Item& item);
-    bool removeItem(const string& itemName);
+    bool dropItem(const string& itemName);
     void displayInventory() const;
 
     // File operations

@@ -7,7 +7,9 @@
 
 using namespace std;
 
-GameOptions::GameOptions()
+GameOptions::GameOptions(CharacterCreator& character)
+    : m_character(&character)
+    , m_optionsRunning(false)
 {
     // Available locations
     locations.push_back(make_unique<Church>());
@@ -15,6 +17,10 @@ GameOptions::GameOptions()
 
     // Default location
     currentLocation = make_unique<Church>();
+}
+
+GameOptions::~GameOptions()
+{
 }
 
 void GameOptions::travel()
@@ -45,9 +51,10 @@ void GameOptions::inventory()
     manageInventory(inventory);
 }
 
-void GameOptions::showStatistiks()
+void GameOptions::showCharacterStats()
 {
     cout << "Checking stats...\n";
+    cout << m_character->toString() << endl;
 }
 
 void GameOptions::showCurrentLocation() const
@@ -64,56 +71,80 @@ void GameOptions::showCurrentLocation() const
 
 void GameOptions::gameMenuStarter()
 {
-    while (true) {
-        cout << "\nGame Menu:\n";
-        cout << "1. Travel\n";
-        cout << "2. Open Inventory\n";
-        cout << "3. Check Stats\n";
-        cout << "4. Show Current Location\n";
-        cout << "q. Exit\n";
-        cout << "Enter your choice: ";
+    setIsRunning(true);
+    while (isRunning()) 
+    {
+        displayGameOptions();
 
-        string choice;
-        cin >> choice;
+        char choice = userChoice();
 
-        if (choice == "1") {
+        if (choice == '1') {
             travel();
         }
-        else if (choice == "2") {
+        else if (choice == '2') {
             inventory();
         }
-        else if (choice == "3") {
-            showStatistiks();
+        else if (choice == '3') {
+            showCharacterStats();
         }
-        else if (choice == "4") {
+        else if (choice == '4') {
             showCurrentLocation();
         }
-        else if (choice == "q") {
+        else if (choice == '5') // testing exploration feature
+        {
+            // create CombatOptions object here?
+            LocationOptions locationOptions;
+            if (currentLocation->getName() == "Goblin Hollow")
+            {
+                // Do combat related stuff
+                m_character->attack();
+            }
+            else if (currentLocation->getName() == "Church of Radiant Dawn")
+            {
+                // Do Exploration / talking to npcs related stuff here?
+
+            }
+            
+        }
+        else if (choice == 'q') {
             cout << "Exiting game...\n";
-            break;
+            setIsRunning(false);
         }
         else {
             cout << "Invalid choice! Try again.\n";
+        }
+        if (isRunning())
+        {
+            string confirm;
+            cout << "\nPress enter to continue.." << endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getline(cin, confirm);
+            clearConsole();
         }
     }
 }
 
 void GameOptions::manageInventory(Inventory& inventory) {
-    int choice;
-    do {
+    bool isRunning = true;
+
+    while (isRunning) {
         cout << "\n--- Inventory Menu ---\n";
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
-        cout << "3. Remove Item\n";
-        cout << "4. Save and Exit\n";
-        cout << "Choose an option: ";
-        cin >> choice;
+        cout << "3. Drop Item\n";
+        cout << "q. Exit Inventory\n";
 
-        if (choice == 1) {
+        char choice = userChoice(); // Get user input
+
+        if (choice == 'q') {
+            inventory.saveToFile();
+            cout << "Inventory saved. Exiting...\n";
+            isRunning = false;
+        }
+        else if (choice == '1') {
             inventory.displayInventory();
         }
-        else if (choice == 2) {
-            cin.ignore();
+        else if (choice == '2') {
             string name, description;
             cout << "Enter item name: ";
             getline(cin, name);
@@ -121,24 +152,50 @@ void GameOptions::manageInventory(Inventory& inventory) {
             getline(cin, description);
             inventory.addItem(Item(name, description));
         }
-        else if (choice == 3) {
-            cin.ignore();
+        else if (choice == '3') {
             string name;
-            cout << "Enter item name to remove: ";
+            cout << "Enter item name to drop: ";
             getline(cin, name);
-            if (inventory.removeItem(name)) {
-                cout << name << " removed from inventory.\n";
+            if (inventory.dropItem(name)) {
+                cout << name << " dropped from inventory.\n";
             }
             else {
                 cout << name << " not found in inventory.\n";
             }
         }
-        else if (choice == 4) {
-            inventory.saveToFile();
-            cout << "Inventory saved. Exiting...\n";
-        }
         else {
             cout << "Invalid choice. Try again.\n";
         }
-    } while (choice != 4);
+    }
+}
+
+void GameOptions::displayGameOptions() const
+{
+    cout << "\nGame Menu:\n";
+    cout << "1. Travel\n";
+    cout << "2. Open Inventory\n";
+    cout << "3. Check Stats\n";
+    cout << "4. Show Current Location\n";
+    cout << "5. Explore your current location \n"; // testing combat feature
+    cout << "q. Exit to Main Menu\n";
+    cout << "Enter your choice: ";
+}
+
+/* Clears console window */
+void GameOptions::clearConsole()
+{
+    system("cls");
+}
+
+char GameOptions::userChoice() const
+{
+    cout << "Enter your choice : " << endl;
+    char choice{};
+    cin >> choice;
+    if (!cin)
+    {
+        cin.clear();
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    return choice;
 }
