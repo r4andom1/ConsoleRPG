@@ -144,6 +144,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RangerCharacter.cpp" />
     <ClCompile Include="StartMenu.cpp" />
+    <ClCompile Include="UtilityFunctions.cpp" />
     <ClCompile Include="WizardCharacter.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +165,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="RangerCharacter.h" />
     <ClInclude Include="StartMenu.h" />
+    <ClInclude Include="UtilityFunctions.h" />
     <ClInclude Include="WizardCharacter.h" />
   </ItemGroup>
   <ItemGroup>
