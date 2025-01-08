@@ -12,6 +12,5 @@ namespace UtilityFunctions
 	char userChoice();
 	void confirmToContinue();
 	void sleepTimer(int seconds);
-
 }
 

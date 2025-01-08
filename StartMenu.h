@@ -29,6 +29,7 @@ public:
 	void menuChoice(char choice);
 	void clearConsole();
 	void sleepTimer(int seconds);
+	void displayStartMenuTitle() const;
 
 	// Setters & Getters
 	void setStartMenu(bool startMenu) { this->m_startMenu = startMenu; }

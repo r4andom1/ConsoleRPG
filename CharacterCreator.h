@@ -33,6 +33,7 @@ public:
 	void displayClassOptions() const;
 	char userChoice() const;
 	virtual int attack();
+	void heal(int health);
 
 	// Setters & Getters
 	string getName() const { return this->m_name; }

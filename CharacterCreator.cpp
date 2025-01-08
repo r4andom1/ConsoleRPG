@@ -132,3 +132,12 @@ int CharacterCreator::attack()
 {
 	return m_damage;
 }
+
+void CharacterCreator::heal(int health)
+{
+	int newHealth = m_currentHP + health;
+	if (newHealth <= m_maxHP)
+		m_currentHP = newHealth;
+	else
+		m_currentHP = m_maxHP;
+}

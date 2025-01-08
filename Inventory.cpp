@@ -4,8 +4,10 @@
 
 using namespace std;
 
-Inventory::Inventory(const string& file)
-    : fileName(file) {
+Inventory::Inventory(CharacterCreator& character, const string& file)
+    : fileName(file) 
+    , m_character(&character)
+{
     loadFromFile();
 }
 
@@ -76,9 +78,8 @@ void Inventory::createHealingPotion() {
 void Inventory::useHealingPotion() {
     for (auto it = items.begin(); it != items.end(); ++it) {
         if (it->getName() == "Healing Potion") {
-            //This shold be some ting outher than player. But player for now.
             int healedAmount = 5;
-            //m_character.setHealt += healedAmount;
+            m_character->heal(healedAmount);
 
             items.erase(it);
 

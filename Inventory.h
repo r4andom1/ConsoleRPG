@@ -2,17 +2,21 @@
 
 #include <vector>
 #include <string>
+#include "CharacterCreator.h"
 #include "Item.h"
 
 using namespace std;
 
-class Inventory {
+class Inventory 
+{
 private:
     vector<Item> items;
     string fileName;
+    CharacterCreator* m_character;
+
 
 public:
-    Inventory(const string& file = "inventory.txt");
+    Inventory(CharacterCreator& character, const string& file = "inventory.txt");
 
     // Inventory operations
     void addItem(const Item& item);

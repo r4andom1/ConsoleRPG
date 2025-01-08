@@ -25,6 +25,7 @@ void StartMenu::start()
 
 void StartMenu::displayChoices() const
 {
+	displayStartMenuTitle();
 	cout << "Welcome to ConsoleRPG!" << endl;
 	cout << endl;
 	cout << "1) Start Game" << endl;
@@ -88,7 +89,7 @@ void StartMenu::menuChoice(char choice)
 	{
 		// Load inventory from file and use inventory class
 		cout << "Starting inventory display" << endl;
-		Inventory inventory;
+		Inventory inventory(*m_character);
 		inventory.displayInventory();
 	}
 	else
@@ -113,4 +114,15 @@ allow the user to see their choices more clearly*/
 void StartMenu::sleepTimer(int seconds)
 {
 	this_thread::sleep_for(chrono::seconds(seconds));
+}
+
+void StartMenu::displayStartMenuTitle() const
+{
+cout << R"(
+	____ ____  _   _  ____  _____ _      ____  _____ ____  
+	/ ___|  _ \| | | |/ ___|| ____| |    |  _ \| ____|  _ \ 
+| |   | |_) | |_| | |  _|  _| | |    | |_) |  _| | |_) |
+| |___|  __/|  _  | |_| | |___| |___ |  _ <| |___|  _ < 
+	\____|_|   |_| |_|\____|_____|_____|_| \_\_____|_| \_\
+)";
 }
