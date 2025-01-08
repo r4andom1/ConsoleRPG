@@ -1,17 +1,16 @@
 #pragma once
 #include "CharacterCreator.h"
-#include "Location.h"
 #include "UtilityFunctions.h"
 #include <string>
 
 using namespace std;
 
-class LocationOptions : public Location
+class LocationOptions
 {
 private:
 
 public:
-	LocationOptions(Location& location);
+	LocationOptions();
 	~LocationOptions() = default;
 
 	void startChurchLocation();

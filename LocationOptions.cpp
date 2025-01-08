@@ -1,7 +1,6 @@
 #include "LocationOptions.h"
 
-LocationOptions::LocationOptions(Location& location)
-    : Location()
+LocationOptions::LocationOptions()
 {
 }
 
