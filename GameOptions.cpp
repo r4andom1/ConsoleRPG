@@ -123,6 +123,7 @@ void GameOptions::manageInventory(Inventory& inventory) {
     bool isRunning = true;
 
     while (isRunning) {
+        UtilityFunctions::clearConsole();
         cout << "\n--- Inventory Menu ---\n";
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
@@ -172,30 +173,10 @@ void GameOptions::manageInventory(Inventory& inventory) {
 void GameOptions::displayGameOptions() const
 {
     cout << "\nGame Menu:\n";
-    cout << "1. Travel\n";
-    cout << "2. Open Inventory\n";
-    cout << "3. Check Stats\n";
-    cout << "4. Show Current Location\n";
-    cout << "5. Explore your current location \n"; // testing combat feature
-    cout << "q. Exit to Main Menu\n";
-    cout << "Enter your choice: ";
-}
-
-/* Clears console window */
-void GameOptions::clearConsole()
-{
-    system("cls");
-}
-
-char GameOptions::userChoice() const
-{
-    cout << "Enter your choice : " << endl;
-    char choice{};
-    cin >> choice;
-    if (!cin)
-    {
-        cin.clear();
-    }
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    return choice;
+    cout << "1) Travel\n";
+    cout << "2) Open Inventory\n";
+    cout << "3) Check Stats\n";
+    cout << "4) Show Current Location\n";
+    cout << "5) Explore your current location \n"; // testing combat feature
+    cout << "q) Exit to Main Menu\n";
 }
