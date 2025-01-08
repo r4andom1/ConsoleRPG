@@ -97,7 +97,6 @@ void GameOptions::gameMenuStarter()
             LocationOptions locationOptions(*m_character, inventory);
             if (currentLocation->getName() == "Goblin Hollow")
             {
-                // Do combat related stuff
                 //m_locationOptions->startCaveLocation();
                 m_character->attack();
             }

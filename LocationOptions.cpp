@@ -16,10 +16,12 @@ void LocationOptions::startChurchLocation()
 
         if (choice == '1') 
         {
+            m_character->takeDamage(6); // test
+            m_character->heal(5); // test
+            
         }
         else if (choice == '2') 
         {
-            m_inventory->displayInventory();
         }
         else if (choice == '3') 
         {

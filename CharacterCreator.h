@@ -13,11 +13,12 @@ private:
 	int m_currentHP;
 	int m_damage;
 	int m_mana;
+	bool m_isAlive;
 
 public:
 	// Constructor
 	CharacterCreator(const string& name="?", const string& playerClass="?", const string& race="?",
-	int maxHP=-1, int currentHP=-1, int damage=-1, int mana=0);
+	int maxHP=-1, int currentHP=-1, int damage=-1, int mana=0, bool isAlive=true);
 
 	// Destructor
 	virtual ~CharacterCreator();
@@ -34,6 +35,7 @@ public:
 	char userChoice() const;
 	virtual int attack();
 	void heal(int health);
+	void takeDamage(int damageTaken);
 
 	// Setters & Getters
 	string getName() const { return this->m_name; }
