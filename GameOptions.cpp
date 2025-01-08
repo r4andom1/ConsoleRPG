@@ -89,7 +89,7 @@ void GameOptions::gameMenuStarter()
         else if (choice == '5') // testing exploration feature
         {
             Inventory inventory(*m_character, "inventory.txt");
-            LocationOptions locationOptions(*m_character, inventory);
+            LocationOptions locationOptions(*m_character, *m_inventory);
             if (currentLocation->getName() == "Goblin Hollow")
             {
                 // Do combat related stuff
