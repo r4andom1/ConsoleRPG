@@ -18,3 +18,5 @@ int main()
 // Alla creatures kommer ha HP, damage, en bool om de lever etc. 
 // TODO: Fixa Church area så man kan prata med Prästen som säger något om Cave-location och att han behöver hjälp med att döda dem.
 // FRÅGA BETTY: Måste vi ta väck alla kommentarer? Vill spara de som förklarar vad vissa funktioner gör.
+// TODO: Kan inte ta väck items från inventory?
+// TODO: Ska vi ta väck "Show current location" i gameoption menyvalet och bara alltid visa current location högst upp?

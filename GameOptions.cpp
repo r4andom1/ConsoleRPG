@@ -78,7 +78,7 @@ void GameOptions::gameMenuStarter()
         cout << currentLocation->getName() << endl;
         displayGameOptions();
 
-        char choice = userChoice();
+        char choice = UtilityFunctions::userChoice();
 
         if (choice == '1') {
             travel();
@@ -114,11 +114,7 @@ void GameOptions::gameMenuStarter()
         }
         if (isRunning())
         {
-            string confirm;
-            cout << "\nPress enter to continue.." << endl;
-            //cin.ignore(numeric_limits<streamsize>::max(), '\n'); // messes with input buffer? Maybe have it after getline
-            getline(cin, confirm);
-            clearConsole();
+            UtilityFunctions::confirmToContinue();
         }
     }
 }
@@ -127,13 +123,14 @@ void GameOptions::manageInventory(Inventory& inventory) {
     bool isRunning = true;
 
     while (isRunning) {
+        UtilityFunctions::clearConsole();
         cout << "\n--- Inventory Menu ---\n";
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
         cout << "3. Drop Item\n";
         cout << "q. Exit Inventory\n";
 
-        char choice = userChoice(); // Get user input
+        char choice = UtilityFunctions::userChoice(); // Get user input
 
         if (choice == 'q') {
             inventory.saveToFile();
@@ -152,7 +149,8 @@ void GameOptions::manageInventory(Inventory& inventory) {
             inventory.addItem(Item(name, description));
         }
         else if (choice == '3') {
-            string name;
+            inventory.displayInventory();
+            string name{};
             cout << "Enter item name to drop: ";
             getline(cin, name);
             if (inventory.dropItem(name)) {
@@ -181,23 +179,4 @@ void GameOptions::displayGameOptions() const
     cout << "4. Show Current Location\n";
     cout << "5. Explore your current location \n"; // testing combat feature
     cout << "q. Exit to Main Menu\n";
-}
-
-/* Clears console window */
-void GameOptions::clearConsole()
-{
-    system("cls");
-}
-
-char GameOptions::userChoice() const
-{
-    cout << "\nEnter your choice : " << endl;
-    char choice{};
-    cin >> choice;
-    if (!cin)
-    {
-        cin.clear();
-    }
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    return choice;
 }
