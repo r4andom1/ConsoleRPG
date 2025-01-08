@@ -14,7 +14,7 @@ private:
 	Inventory* m_inventory;
 
 public:
-	CombatOptions(CharacterCreator* character, Inventory* inventory);
-	void StartCombatLoop();
+	CombatOptions(CharacterCreator& character, Inventory& inventory);
+	void startCombatLoop();
 };
 

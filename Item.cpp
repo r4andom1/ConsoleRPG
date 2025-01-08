@@ -9,7 +9,7 @@ Item::Item(const string& itemName, const string& itemDescription)
 }
 
 string Item::toString() const {
-    return name + " | " + description;
+    return name + "|" + description;
 }
 
 Item Item::fromString(const string& itemData) {

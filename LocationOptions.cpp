@@ -3,6 +3,7 @@
 LocationOptions::LocationOptions(CharacterCreator& character, Inventory& inventory)
     : m_character(&character)
     , m_inventory(&inventory)
+    , m_combatoptions(make_unique<CombatOptions>(character, inventory))
 {
 }
 
@@ -59,11 +60,13 @@ void LocationOptions::startCaveLocation()
 
         if (choice == '1')
         {
-            //Starts Combat
+            m_combatoptions->startCombatLoop();
         }
         else if (choice == '2')
         {
-            m_inventory->displayInventory();
+            cout << "Opening inventory...\n";
+            m_inventory->manageInventory();
+            m_inventory->saveToFile();
         }
         else if (choice == '3')
         {

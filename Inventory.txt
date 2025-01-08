@@ -1,0 +1,5 @@
+Healing Potion|Restores health when used.
+Bone|It's a Bone
+Gg|Ggs
+Help|Yes
+Kul|ja
