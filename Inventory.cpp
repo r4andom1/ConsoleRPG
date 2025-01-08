@@ -4,19 +4,23 @@
 
 using namespace std;
 
-Inventory::Inventory(const string& file)
-    : fileName(file) {
+Inventory::Inventory(CharacterCreator& character, const string& file)
+    : fileName(file) 
+    , m_character(&character)
+{
     loadFromFile();
 }
 
-void Inventory::addItem(const Item& item) {
+void Inventory::addItem(const Item& item) 
+{
     items.push_back(item);
 }
 
 bool Inventory::dropItem(const string& itemName)
 {
     for (auto it = items.begin(); it != items.end(); ++it) {
-        if (it->getName() == itemName) {
+        if (it->getName() == itemName) 
+        {
             items.erase(it);
             return true;
         }
@@ -24,21 +28,26 @@ bool Inventory::dropItem(const string& itemName)
     return false;
 }
 
-void Inventory::displayInventory() const {
-    if (items.empty()) {
+void Inventory::displayInventory() const 
+{
+    if (items.empty()) 
+    {
         cout << "Your inventory is empty.\n";
         return;
     }
 
     cout << "Your inventory contains:\n";
-    for (const auto& item : items) {
-        cout << "- " << item.getName() << ": " << item.getDescription() << "\n";
+    for (const auto& item : items) 
+    {
+        cout << "- " << item.getName() << " | " << item.getDescription() << "\n";
     }
 }
 
-void Inventory::saveToFile() const {
+void Inventory::saveToFile() const 
+{
     ofstream file(fileName);
-    if (file.is_open()) {
+    if (file.is_open()) 
+    {
         for (const auto& item : items) {
             file << item.toString() << "\n";
         }
@@ -49,10 +58,12 @@ void Inventory::saveToFile() const {
     }
 }
 
-void Inventory::loadFromFile() {
+void Inventory::loadFromFile() 
+{
     items.clear();
     ifstream file(fileName);
-    if (file.is_open()) {
+    if (file.is_open()) 
+    {
         string line;
         while (getline(file, line)) {
             if (!line.empty()) {
@@ -66,19 +77,21 @@ void Inventory::loadFromFile() {
     }
 }
 
-void Inventory::createHealingPotion() {
+void Inventory::createHealingPotion() 
+{
     Item healingPotion("Healing Potion", "Restores health when used.");
     items.push_back(healingPotion);
 
     cout << "Healing Potion has been added to your inventory." << endl;
 }
 
-void Inventory::useHealingPotion() {
+void Inventory::useHealingPotion() 
+{
     for (auto it = items.begin(); it != items.end(); ++it) {
-        if (it->getName() == "Healing Potion") {
-            //This shold be some ting outher than player. But player for now.
+        if (it->getName() == "Healing Potion") 
+        {
             int healedAmount = 5;
-            //m_character.setHealt += healedAmount;
+            m_character->heal(healedAmount);
 
             items.erase(it);
 

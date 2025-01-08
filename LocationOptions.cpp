@@ -16,12 +16,16 @@ void LocationOptions::startChurchLocation()
 
         if (choice == '1') 
         {
+            m_character->takeDamage(6); // test
+            m_character->heal(5); // test
+            
         }
         else if (choice == '2') 
         {
         }
         else if (choice == '3') 
         {
+            cout << m_character->toString() << endl;
         }
         else if (choice == '4') 
         {
@@ -90,7 +94,7 @@ void LocationOptions::startCaveLocation()
 
 void LocationOptions::displayChurchOptions() const
 {
-    cout << "1. Enter Church " << endl;
+    cout << "1. Enter Church and talk to priest" << endl;
     cout << "2. Open Inventory" << endl;
     cout << "3. Check Stats" << endl;
     cout << "q. Exit Church location" << endl;

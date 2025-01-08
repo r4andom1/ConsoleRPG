@@ -46,7 +46,7 @@ void GameOptions::travel()
 void GameOptions::inventory()
 {
     cout << "Opening inventory...\n";
-    Inventory inventory("inventory.txt");
+    Inventory inventory(*m_character, "inventory.txt");
     manageInventory(inventory);
 }
 
@@ -93,12 +93,13 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == '5') // testing exploration feature
         {
-            Inventory inventory("inventory.txt");
+            Inventory inventory(*m_character, "inventory.txt");
             LocationOptions locationOptions(*m_character, inventory);
             if (currentLocation->getName() == "Goblin Hollow")
             {
                 // Do combat related stuff
-                locationOptions.startCaveLocation();
+                //m_locationOptions->startCaveLocation();
+                m_character->attack();
             }
             else if (currentLocation->getName() == "Church of Radiant Dawn")
             {

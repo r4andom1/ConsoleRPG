@@ -22,3 +22,4 @@ int main()
 // TODO: Kan inte ta väck items från inventory?
 // TODO: Ska vi ta väck "Show current location" i gameoption menyvalet och bara alltid visa current location högst upp?
 // TODO: I "location options menyn" så måste vi passera in m_character och inventory på något sätt så att man kan se stats och se sin inventory
+// TODO: 

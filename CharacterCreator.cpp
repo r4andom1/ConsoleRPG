@@ -1,7 +1,7 @@
 #include "CharacterCreator.h"
 
 CharacterCreator::CharacterCreator(const string& name, const string& playerClass, const string& race,
-	int maxHP, int currentHP, int damage, int mana)
+	int maxHP, int currentHP, int damage, int mana, bool isAlive)
 	: m_name(name)
 	, m_class(playerClass)
 	, m_race(race)
@@ -9,6 +9,7 @@ CharacterCreator::CharacterCreator(const string& name, const string& playerClass
 	, m_currentHP(currentHP)
 	, m_damage(damage)
 	, m_mana(mana)
+	, m_isAlive(isAlive)
 {
 }
 
@@ -131,4 +132,22 @@ char CharacterCreator::userChoice() const
 int CharacterCreator::attack()
 {
 	return m_damage;
+}
+
+void CharacterCreator::heal(int health)
+{
+	int newHealth = m_currentHP + health;
+	if (newHealth <= m_maxHP)
+		m_currentHP = newHealth;
+	else
+		m_currentHP = m_maxHP;
+}
+
+void CharacterCreator::takeDamage(int damageTaken)
+{
+	m_currentHP -= damageTaken;
+	if (m_currentHP <= 0)
+	{
+		m_isAlive = false;
+	}
 }

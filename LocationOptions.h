@@ -3,7 +3,7 @@
 #include "Inventory.h"
 #include "UtilityFunctions.h"
 #include <string>
-#include <iostream>
+
 using namespace std;
 
 class LocationOptions
