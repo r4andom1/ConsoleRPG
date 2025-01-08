@@ -6,7 +6,6 @@
 #include "WizardCharacter.h"
 #include "Player.h"
 #include "GameOptions.h"
-#include "GameOptions.h"
 #include <string>
 using namespace std;
 

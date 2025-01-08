@@ -65,3 +65,26 @@ void Inventory::loadFromFile() {
         cerr << "Unable to load inventory from file. Starting with an empty inventory.\n";
     }
 }
+
+void Inventory::createHealingPotion() {
+    Item healingPotion("Healing Potion", "Restores health when used.");
+    items.push_back(healingPotion);
+
+    cout << "Healing Potion has been added to your inventory." << endl;
+}
+
+void Inventory::useHealingPotion() {
+    for (auto it = items.begin(); it != items.end(); ++it) {
+        if (it->getName() == "Healing Potion") {
+            //This shold be some ting outher than player. But player for now.
+            int healedAmount = 5;
+            //m_character.setHealt += healedAmount;
+
+            items.erase(it);
+
+            cout << "You used a Healing Potion and restored " << healedAmount << " HP!" << endl;
+            return;
+        }
+    }
+    cout << "You do not have a Healing Potion in your inventory." << endl;
+}

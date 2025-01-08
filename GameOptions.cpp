@@ -129,6 +129,8 @@ void GameOptions::manageInventory(Inventory& inventory) {
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
         cout << "3. Drop Item\n";
+        cout << "4. Use Item\n";
+        cout << "5. Add HP Potion\n";
         cout << "q. Exit Inventory\n";
 
         char choice = UtilityFunctions::userChoice(); // Get user input
@@ -161,6 +163,22 @@ void GameOptions::manageInventory(Inventory& inventory) {
                 cout << name << " not found in inventory.\n";
             }
         }
+        else if (choice == '4') {
+            inventory.displayInventory();
+            cout << "Enter item name to use: ";
+            string name;
+            getline(cin, name);
+
+            if (name == "Healing Potion") {
+                inventory.useHealingPotion();
+            }
+            else {
+                cout << "This item cannot be used." << endl;
+            }
+        }
+        else if (choice == '5') {
+            inventory.createHealingPotion();
+        }
         else {
             cout << "Invalid choice. Try again.\n";
         }
@@ -174,10 +192,10 @@ void GameOptions::manageInventory(Inventory& inventory) {
 void GameOptions::displayGameOptions() const
 {
     cout << "\nGame Menu:\n";
-    cout << "1. Travel\n";
-    cout << "2. Open Inventory\n";
-    cout << "3. Check Stats\n";
-    cout << "4. Show Current Location\n";
-    cout << "5. Explore your current location \n"; // testing combat feature
-    cout << "q. Exit to Main Menu\n";
+    cout << "1) Travel\n";
+    cout << "2) Open Inventory\n";
+    cout << "3) Check Stats\n";
+    cout << "4) Show Current Location\n";
+    cout << "5) Explore your current location \n"; // testing combat feature
+    cout << "q) Exit to Main Menu\n";
 }
