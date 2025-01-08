@@ -5,6 +5,7 @@
 #include "Inventory.h"
 #include "CharacterCreator.h"
 #include "LocationOptions.h"
+#include "UtilityFunctions.h"
 #include <vector>
 #include <memory>
 
@@ -16,6 +17,7 @@ private:
 	vector<shared_ptr<Location>> locations;
 	shared_ptr<Location> currentLocation;
 	CharacterCreator* m_character;
+	LocationOptions* m_locationOptions;
 	bool m_optionsRunning;
 
 public:
@@ -33,8 +35,6 @@ public:
 	void gameMenuStarter();
 	void manageInventory(Inventory& inventory);
 	void displayGameOptions() const;
-	void clearConsole();
-	char userChoice() const;
 
 	// Getters & Setters
 	bool isRunning() const { return this->m_optionsRunning; }

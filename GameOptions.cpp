@@ -10,6 +10,7 @@ using namespace std;
 GameOptions::GameOptions(CharacterCreator& character)
     : m_character(&character)
     , m_optionsRunning(false)
+    , m_locationOptions(nullptr)
 {
     // Available locations
     locations.push_back(make_unique<Church>());
@@ -43,7 +44,6 @@ void GameOptions::travel()
     }
 }
 
-
 void GameOptions::inventory()
 {
     cout << "Opening inventory...\n";
@@ -74,9 +74,11 @@ void GameOptions::gameMenuStarter()
     setIsRunning(true);
     while (isRunning()) 
     {
+        currentLocation->drawImage();
+        cout << currentLocation->getName() << endl;
         displayGameOptions();
 
-        char choice = userChoice();
+        char choice = UtilityFunctions::userChoice();
 
         if (choice == '1') {
             travel();
@@ -92,19 +94,16 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == '5') // testing exploration feature
         {
-            // create CombatOptions object here?
-            LocationOptions locationOptions;
             if (currentLocation->getName() == "Goblin Hollow")
             {
                 // Do combat related stuff
+                //m_locationOptions->startCaveLocation();
                 m_character->attack();
             }
             else if (currentLocation->getName() == "Church of Radiant Dawn")
             {
-                // Do Exploration / talking to npcs related stuff here?
-
+                m_locationOptions->startChurchLocation();
             }
-            
         }
         else if (choice == 'q') {
             cout << "Exiting game...\n";
@@ -115,11 +114,7 @@ void GameOptions::gameMenuStarter()
         }
         if (isRunning())
         {
-            string confirm;
-            cout << "\nPress enter to continue.." << endl;
-            //cin.ignore(numeric_limits<streamsize>::max(), '\n'); // This only seems to mess up the input buffer?
-            getline(cin, confirm);
-            clearConsole();
+            UtilityFunctions::confirmToContinue();
         }
     }
 }
@@ -127,15 +122,14 @@ void GameOptions::gameMenuStarter()
 void GameOptions::manageInventory(Inventory& inventory) {
     bool isRunning = true;
 
-    while (isRunning) 
-    {
+    while (isRunning) {
         cout << "\n--- Inventory Menu ---\n";
         cout << "1. View Inventory\n";
         cout << "2. Add Item\n";
         cout << "3. Drop Item\n";
         cout << "q. Exit Inventory\n";
 
-        char choice = userChoice(); // Get user input
+        char choice = UtilityFunctions::userChoice(); // Get user input
 
         if (choice == 'q') {
             inventory.saveToFile();
@@ -154,7 +148,8 @@ void GameOptions::manageInventory(Inventory& inventory) {
             inventory.addItem(Item(name, description));
         }
         else if (choice == '3') {
-            string name;
+            inventory.displayInventory();
+            string name{};
             cout << "Enter item name to drop: ";
             getline(cin, name);
             if (inventory.dropItem(name)) {
@@ -166,6 +161,10 @@ void GameOptions::manageInventory(Inventory& inventory) {
         }
         else {
             cout << "Invalid choice. Try again.\n";
+        }
+        if (isRunning)
+        {
+            UtilityFunctions::confirmToContinue();
         }
     }
 }
@@ -179,6 +178,7 @@ void GameOptions::displayGameOptions() const
     cout << "4. Show Current Location\n";
     cout << "5. Explore your current location \n"; // testing combat feature
     cout << "q. Exit to Main Menu\n";
+    cout << "Enter your choice: ";
 }
 
 /* Clears console window */
@@ -189,7 +189,7 @@ void GameOptions::clearConsole()
 
 char GameOptions::userChoice() const
 {
-    cout << "\nEnter your choice : " << endl;
+    cout << "Enter your choice : " << endl;
     char choice{};
     cin >> choice;
     if (!cin)

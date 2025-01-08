@@ -31,12 +31,12 @@ void StartMenu::displayChoices() const
 	cout << "2) Create Character" << endl;
 	cout << "3) View your current character" << endl;
 	cout << "4) Check inventory from last session" << endl;
-	cout << "\nq) Exit Game" << endl;
+	cout << "q) Exit Game" << endl;
 }
 
 char StartMenu::userChoice() const
 {
-	cout << "Enter your choice : " << endl;
+	cout << "\nEnter your choice : " << endl;
 	char choice{};
 	cin >> choice;
 	if (!cin)
