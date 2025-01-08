@@ -5,6 +5,7 @@
 #include "Inventory.h"
 #include "CharacterCreator.h"
 #include "LocationOptions.h"
+#include "UtilityFunctions.h"
 #include <vector>
 #include <memory>
 

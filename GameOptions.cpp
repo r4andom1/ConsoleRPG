@@ -165,6 +165,10 @@ void GameOptions::manageInventory(Inventory& inventory) {
         else {
             cout << "Invalid choice. Try again.\n";
         }
+        if (isRunning)
+        {
+            UtilityFunctions::confirmToContinue();
+        }
     }
 }
 
