@@ -32,7 +32,7 @@ void Inventory::displayInventory() const {
 
     cout << "Your inventory contains:\n";
     for (const auto& item : items) {
-        cout << "- " << item.getName() << ": " << item.getDescription() << "\n";
+        cout << "- " << item.getName() << " | " << item.getDescription() << "\n";
     }
 }
 

@@ -17,7 +17,6 @@ private:
 	vector<shared_ptr<Location>> locations;
 	shared_ptr<Location> currentLocation;
 	CharacterCreator* m_character;
-	LocationOptions* m_locationOptions;
 	bool m_optionsRunning;
 
 public:

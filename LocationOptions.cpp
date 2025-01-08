@@ -1,6 +1,8 @@
 #include "LocationOptions.h"
 
-LocationOptions::LocationOptions()
+LocationOptions::LocationOptions(CharacterCreator& character, Inventory& inventory)
+    : m_character(&character)
+    , m_inventory(&inventory)
 {
 }
 
@@ -17,9 +19,11 @@ void LocationOptions::startChurchLocation()
         }
         else if (choice == '2') 
         {
+            m_inventory->displayInventory();
         }
         else if (choice == '3') 
         {
+            cout << m_character->toString() << endl;
         }
         else if (choice == '4') 
         {
