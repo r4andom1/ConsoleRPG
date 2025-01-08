@@ -99,7 +99,6 @@ void GameOptions::gameMenuStarter()
             {
                 // Do combat related stuff
                 locationOptions.startCaveLocation();
-                m_character->attack();
             }
             else if (currentLocation->getName() == "Church of Radiant Dawn")
             {
