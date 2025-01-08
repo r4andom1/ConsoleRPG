@@ -59,7 +59,7 @@ string CharacterCreator::chooseName() const
 string CharacterCreator::chooseClass() const
 {
 	displayClassOptions();
-	char classChosen = userChoice();
+	char classChosen = UtilityFunctions::userChoice();
 	if (classChosen == '1')
 	{
 		return "Fighter";
@@ -81,7 +81,7 @@ string CharacterCreator::chooseClass() const
 string CharacterCreator::chooseRace() const
 {
 	displayRaceOptions();
-	char raceChosen = userChoice();
+	char raceChosen = UtilityFunctions::userChoice();
 	if (raceChosen == '1')
 	{
 		return "Human";
@@ -114,19 +114,6 @@ void CharacterCreator::displayClassOptions() const
 	cout << "1) Fighter" << endl;
 	cout << "2) Ranger" << endl;
 	cout << "3) Wizard" << endl;
-}
-
-char CharacterCreator::userChoice() const
-{
-	cout << "Enter your choice : " << endl;
-	char choice{};
-	cin >> choice;
-	if (!cin)
-	{
-		cin.clear();
-	}
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	return choice;
 }
 
 int CharacterCreator::attack()

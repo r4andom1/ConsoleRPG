@@ -9,7 +9,7 @@ void UtilityFunctions::clearConsole()
 /* Takes user choice as input, cleans up input buffer and returns choice */
 char UtilityFunctions::userChoice()
 {
-    cout << "\nEnter your choice : " << endl;
+    cout << "\nEnter your choice : ";
     char choice{};
     cin >> choice;
     if (!cin)
@@ -18,6 +18,7 @@ char UtilityFunctions::userChoice()
     }
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     return choice;
+    clearConsole();
 
 }
 

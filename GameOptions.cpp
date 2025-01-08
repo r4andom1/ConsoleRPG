@@ -25,20 +25,24 @@ GameOptions::~GameOptions()
 
 void GameOptions::travel()
 {
+    UtilityFunctions::clearConsole();
     cout << "Where would you like to travel?\n";
-    for (size_t i = 0; i < locations.size(); ++i) {
+    for (size_t i = 0; i < locations.size(); ++i) 
+    {
         cout << i + 1 << ". " << locations[i]->getName() << "\n";
     }
     int choice;
     cin >> choice;
 
-    if (choice > 0 && choice <= static_cast<int>(locations.size())) {
+    if (choice > 0 && choice <= static_cast<int>(locations.size())) 
+    {
         currentLocation = locations[choice - 1];
         cout << "You traveled to " << currentLocation->getName() << "!\n";
         currentLocation->drawImage();
         cout << currentLocation->areaDescription() << endl;
     }
-    else {
+    else 
+    {
         cout << "Invalid choice!\n";
     }
 }
@@ -52,6 +56,7 @@ void GameOptions::inventory()
 
 void GameOptions::showCharacterStats()
 {
+    UtilityFunctions::clearConsole();
     cout << "Checking stats...\n";
     cout << m_character->toString() << endl;
 }
@@ -63,7 +68,8 @@ void GameOptions::showCurrentLocation() const
         currentLocation->drawImage();
         currentLocation->areaDescription();
     }
-    else {
+    else 
+    {
         cout << "You are nowhere!\n";
     }
 }
@@ -73,6 +79,7 @@ void GameOptions::gameMenuStarter()
     setIsRunning(true);
     while (isRunning()) 
     {
+        UtilityFunctions::clearConsole();
         currentLocation->drawImage();
         cout << currentLocation->getName() << endl;
         displayGameOptions();
@@ -91,14 +98,13 @@ void GameOptions::gameMenuStarter()
         else if (choice == '4') {
             showCurrentLocation();
         }
-        else if (choice == '5') // testing exploration feature
+        else if (choice == '5')
         {
             Inventory inventory(*m_character, "inventory.txt");
             LocationOptions locationOptions(*m_character, inventory);
             if (currentLocation->getName() == "Goblin Hollow")
             {
-                //m_locationOptions->startCaveLocation();
-                m_character->attack();
+                locationOptions.startCaveLocation();
             }
             else if (currentLocation->getName() == "Church of Radiant Dawn")
             {

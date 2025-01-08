@@ -5,6 +5,7 @@
 #include "FighterCharacter.h"
 #include "RangerCharacter.h"
 #include "WizardCharacter.h"
+#include "UtilityFunctions.h"
 #include <iostream>
 #include <string> 
 #include <thread> // sleep functionality
@@ -25,10 +26,7 @@ public:
 	// Member Functions
 	void start();
 	void displayChoices() const;
-	char userChoice() const;
 	void menuChoice(char choice);
-	void clearConsole();
-	void sleepTimer(int seconds);
 	void displayStartMenuTitle() const;
 
 	// Setters & Getters

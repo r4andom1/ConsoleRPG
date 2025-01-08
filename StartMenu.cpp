@@ -17,9 +17,9 @@ void StartMenu::start()
 	setStartMenu(true);
 	while (isRunning())
 	{
-		clearConsole();
+		UtilityFunctions::clearConsole();
 		displayChoices();
-		menuChoice(userChoice());
+		menuChoice(UtilityFunctions::userChoice());
 	}
 }
 
@@ -33,19 +33,6 @@ void StartMenu::displayChoices() const
 	cout << "3) View your current character" << endl;
 	cout << "4) Check inventory from last session" << endl;
 	cout << "q) Exit Game" << endl;
-}
-
-char StartMenu::userChoice() const
-{
-	cout << "\nEnter your choice : " << endl;
-	char choice{};
-	cin >> choice;
-	if (!cin)
-	{
-		cin.clear();
-	}
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	return choice;
 }
 
 void StartMenu::menuChoice(char choice)
@@ -102,18 +89,6 @@ void StartMenu::menuChoice(char choice)
 		cout << "\nPress enter to continue.." << endl;
 		getline(cin, confirm);
 	}
-}
-
-/* Clears console window */
-void StartMenu::clearConsole()
-{
-	system("cls");
-}
-/* Pauses the time for set couple of seconds to
-allow the user to see their choices more clearly*/
-void StartMenu::sleepTimer(int seconds)
-{
-	this_thread::sleep_for(chrono::seconds(seconds));
 }
 
 void StartMenu::displayStartMenuTitle() const

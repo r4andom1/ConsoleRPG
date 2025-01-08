@@ -11,7 +11,8 @@ class LocationOptions
 {
 private:
 	CharacterCreator* m_character;
-	Inventory* m_inventory;
+	bool m_caveQuestCompleted;
+	bool m_firstEncounterWithPriest;
 
 public:
 	LocationOptions(CharacterCreator& character, Inventory& inventory);
@@ -20,5 +21,12 @@ public:
 	void startChurchLocation();
 	void startCaveLocation();
 	void displayChurchOptions() const;
+	void priestDialogueChoice();
+	void priestDialogueOptions() const;
+	void firstEncounterPriest();
+
+	// Setters & getters
+	void setFirstEncounterWithPriest(bool firstEncounter) { this->m_firstEncounterWithPriest = firstEncounter; }
+	void setCaveQuestCompleted(bool completed) { this->m_caveQuestCompleted = completed; }
 };
 
