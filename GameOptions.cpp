@@ -86,19 +86,19 @@ void GameOptions::gameMenuStarter()
 
         char choice = UtilityFunctions::userChoice();
 
-        if (choice == '1') {
+        if (choice == '1') 
+        {
             travel();
         }
-        else if (choice == '2') {
+        else if (choice == '2') 
+        {
             inventory();
         }
-        else if (choice == '3') {
+        else if (choice == '3') 
+        {
             showCharacterStats();
         }
-        else if (choice == '4') {
-            showCurrentLocation();
-        }
-        else if (choice == '5')
+        else if (choice == '4')
         {
             Inventory inventory(*m_character, "inventory.txt");
             LocationOptions locationOptions(*m_character, inventory);
@@ -111,11 +111,13 @@ void GameOptions::gameMenuStarter()
                 locationOptions.startChurchLocation();
             }
         }
-        else if (choice == 'q') {
+        else if (choice == 'q') 
+        {
             cout << "Exiting game...\n";
             setIsRunning(false);
         }
-        else {
+        else 
+        {
             cout << "Invalid choice! Try again.\n";
         }
         if (isRunning())
@@ -200,7 +202,6 @@ void GameOptions::displayGameOptions() const
     cout << "1) Travel\n";
     cout << "2) Open Inventory\n";
     cout << "3) Check Stats\n";
-    cout << "4) Show Current Location\n";
-    cout << "5) Explore your current location \n"; // testing combat feature
+    cout << "4) Explore your current location \n"; // testing combat feature
     cout << "q) Exit to Main Menu\n";
 }

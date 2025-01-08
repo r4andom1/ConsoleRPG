@@ -17,9 +17,8 @@ char UtilityFunctions::userChoice()
         cin.clear();
     }
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    clearConsole(); // Added this
     return choice;
-    clearConsole();
-
 }
 
 /* Gives user a confirmation before continuing to another choice in menu */
