@@ -131,6 +131,7 @@
     <ClCompile Include="CharacterCreator.cpp" />
     <ClCompile Include="Church.cpp" />
     <ClCompile Include="CombatOptions.cpp" />
+    <ClCompile Include="Creature.cpp" />
     <ClCompile Include="LocationOptions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CreatureHandler.cpp" />

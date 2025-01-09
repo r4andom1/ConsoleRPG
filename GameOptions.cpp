@@ -94,7 +94,6 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == '4')
         {
-            Inventory inventory(*m_character, "inventory.txt");
             LocationOptions locationOptions(*m_character, *m_inventory);
             if (currentLocation->getName() == "Goblin Hollow")
             {

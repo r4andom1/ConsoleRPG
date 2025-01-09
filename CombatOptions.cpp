@@ -13,6 +13,7 @@ void CombatOptions::startCombatLoop()
 
     while (isRunning)
     {
+        UtilityFunctions::clearConsole();
         char choice = UtilityFunctions::userChoice();
 
         cout << "\n--- Combat Menu ---\n";
@@ -49,3 +50,4 @@ void CombatOptions::startCombatLoop()
         }
     }
 }
+

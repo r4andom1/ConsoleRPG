@@ -19,7 +19,6 @@ private:
 	CharacterCreator* m_character;
 	unique_ptr<Inventory> m_inventory;
 	bool m_optionsRunning;
-	Inventory m_inventory;
 
 public:
 	// Constructor

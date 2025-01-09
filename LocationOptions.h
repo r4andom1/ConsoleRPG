@@ -19,18 +19,19 @@ private:
 public:
 	LocationOptions(CharacterCreator& character, Inventory& inventory);
 	~LocationOptions() = default;
-
+	
 	void startChurchLocation();
-	void startCaveLocation();
-
 	void displayChurchOptions() const;
 	void priestDialogueChoice();
 	void priestDialogueOptions() const;
 	void firstEncounterPriest();
 
+	void startCaveLocation();
+	void displayCaveOptions() const;
+
 	// Setters & getters
 	void setFirstEncounterWithPriest(bool firstEncounter) { this->m_firstEncounterWithPriest = firstEncounter; }
 	void setCaveQuestCompleted(bool completed) { this->m_caveQuestCompleted = completed; }
-	void displayCaveOptions() const;
+
 };
 

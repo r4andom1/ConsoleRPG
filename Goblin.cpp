@@ -1,20 +1,6 @@
 #include "Goblin.h"
 
-Goblin::Goblin(string name, int maxHealth, int level, int damage)
+Goblin::Goblin(const string& name, int damage, int maxHP, int currentHP, int level, bool isAlive)
+    : Creature(name, damage, maxHP, currentHP, level, isAlive)
 {
-    setName(name);
-    setMaxHealth(maxHealth);
-    setCurrentHealth(maxHealth);
-    setLevel(level);
-    m_damage = damage;
-}
-
-bool Goblin::isAlive() const
-{
-    return getCurrentHealth() > 0;
-}
-
-void Goblin::meleeAttack() const
-{
-    cout << getName() << " attacks for " << m_damage << " damage!" << endl;
 }
