@@ -30,7 +30,7 @@ string CharacterCreator::toString() const
 	       "\nDamage: " + to_string(m_damage);
 }
 
- //Testing characterCreator for easier debugging
+/* Testing characterCreator for easier debugging */
 void CharacterCreator::createCharacter()
 {
 	setName("TestGuy");
@@ -39,10 +39,11 @@ void CharacterCreator::createCharacter()
 	cout << "Test character created successfully" << endl;
 }
 
-// Final CharacterCreator function when playing the finished game.
+/* Final CharacterCreator function when playing the finished game */
 //void CharacterCreator::createCharacter()
 //{
 //	setName(chooseName());
+//	UtilityFunctions::clearConsole();
 //	setClass(chooseClass());
 //	setRace(chooseRace());
 //	cout << "Player-defined character created successfully" << endl;
