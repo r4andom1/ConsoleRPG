@@ -17,6 +17,7 @@ private:
 	vector<shared_ptr<Location>> locations;
 	shared_ptr<Location> currentLocation;
 	CharacterCreator* m_character;
+	unique_ptr<Inventory> m_inventory;
 	bool m_optionsRunning;
 	Inventory m_inventory;
 
@@ -29,7 +30,6 @@ public:
 
 	// Member Functions
 	void travel();
-	void inventory();
 	void showCharacterStats();
 	void showCurrentLocation() const;
 	void gameMenuStarter();

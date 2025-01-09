@@ -9,8 +9,8 @@ using namespace std;
 
 GameOptions::GameOptions(CharacterCreator& character)
     : m_character(&character)
-    , m_optionsRunning(false)
-    , m_inventory(character, "inventory.txt")
+    , m_inventory(make_unique<Inventory>(character, "inventory.txt"))
+    , m_optionsRunning(true)
 {
     // Available locations
     locations.push_back(make_unique<Church>());
@@ -46,13 +46,6 @@ void GameOptions::travel()
     {
         cout << "Invalid choice!\n";
     }
-}
-
-void GameOptions::inventory()
-{
-    cout << "Opening inventory...\n";
-    Inventory inventory(*m_character, "inventory.txt");
-    manageInventory(inventory);
 }
 
 void GameOptions::showCharacterStats()
@@ -91,9 +84,9 @@ void GameOptions::gameMenuStarter()
         {
             travel();
         }
-        else if (choice == '2') 
-        {
-            inventory();
+        else if (choice == '2') {
+            cout << "Opening inventory...\n";
+            manageInventory(*m_inventory);
         }
         else if (choice == '3') 
         {
@@ -101,8 +94,8 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == '4')
         {
-            //Inventory inventory(*m_character, "inventory.txt");
-            LocationOptions locationOptions(*m_character, m_inventory);
+            Inventory inventory(*m_character, "inventory.txt");
+            LocationOptions locationOptions(*m_character, *m_inventory);
             if (currentLocation->getName() == "Goblin Hollow")
             {
                 locationOptions.startCaveLocation();
@@ -128,73 +121,9 @@ void GameOptions::gameMenuStarter()
     }
 }
 
-void GameOptions::manageInventory(Inventory& inventory) {
-    bool isRunning = true;
-
-    while (isRunning) {
-        UtilityFunctions::clearConsole();
-        cout << "\n--- Inventory Menu ---\n";
-        cout << "1. View Inventory\n";
-        cout << "2. Add Item\n";
-        cout << "3. Drop Item\n";
-        cout << "4. Use Item\n";
-        cout << "5. Add HP Potion\n";
-        cout << "q. Exit Inventory\n";
-
-        char choice = UtilityFunctions::userChoice(); // Get user input
-
-        if (choice == 'q') {
-            inventory.saveToFile();
-            cout << "Inventory saved. Exiting...\n";
-            isRunning = false;
-        }
-        else if (choice == '1') {
-            inventory.displayInventory();
-        }
-        else if (choice == '2') {
-            string name, description;
-            cout << "Enter item name: ";
-            getline(cin, name);
-            cout << "Enter item description: ";
-            getline(cin, description);
-            inventory.addItem(Item(name, description));
-        }
-        else if (choice == '3') {
-            inventory.displayInventory();
-            string name{};
-            cout << "Enter item name to drop: ";
-            getline(cin, name);
-            if (inventory.dropItem(name)) {
-                cout << name << " dropped from inventory.\n";
-            }
-            else {
-                cout << name << " not found in inventory.\n";
-            }
-        }
-        else if (choice == '4') {
-            inventory.displayInventory();
-            cout << "Enter item name to use: ";
-            string name;
-            getline(cin, name);
-
-            if (name == "Healing Potion") {
-                inventory.useHealingPotion();
-            }
-            else {
-                cout << "This item cannot be used." << endl;
-            }
-        }
-        else if (choice == '5') {
-            inventory.createHealingPotion();
-        }
-        else {
-            cout << "Invalid choice. Try again.\n";
-        }
-        if (isRunning)
-        {
-            UtilityFunctions::confirmToContinue();
-        }
-    }
+void GameOptions::manageInventory(Inventory& inventory)
+{
+    inventory.manageInventory();
 }
 
 void GameOptions::displayGameOptions() const

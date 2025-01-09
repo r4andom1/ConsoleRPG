@@ -9,12 +9,12 @@ Item::Item(const string& itemName, const string& itemDescription)
 }
 
 string Item::toString() const {
-    return name + " | " + description;
+    return name + "|" + description;
 }
 
 Item Item::fromString(const string& itemData) {
-    size_t delimiterPos = itemData.find('|');
-    string itemName = itemData.substr(0, delimiterPos);
-    string itemDescription = itemData.substr(delimiterPos + 1);
+    size_t separatorPos = itemData.find('|');
+    string itemName = itemData.substr(0, separatorPos);
+    string itemDescription = itemData.substr(separatorPos + 1);
     return Item(itemName, itemDescription);
 }

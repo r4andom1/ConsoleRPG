@@ -4,6 +4,7 @@
 #include <string>
 #include "CharacterCreator.h"
 #include "Item.h"
+#include "UtilityFunctions.h"
 
 using namespace std;
 
@@ -30,4 +31,5 @@ public:
     // Adding and using Items
     void createHealingPotion();
     void useHealingPotion();
+    void manageInventory();
 };

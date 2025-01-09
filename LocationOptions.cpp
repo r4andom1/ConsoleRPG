@@ -4,6 +4,8 @@ LocationOptions::LocationOptions(CharacterCreator& character, Inventory& invento
     : m_character(&character)
     , m_caveQuestCompleted(false)
     , m_firstEncounterWithPriest(true)
+    , m_inventory(&inventory)
+    , m_combatoptions(make_unique<CombatOptions>(character, inventory))
 {
 }
 
@@ -107,7 +109,52 @@ void LocationOptions::priestDialogueChoice()
     }
 }
 
-void LocationOptions::priestDialogueOptions() const
+void LocationOptions::startCaveLocation()
+{
+    bool quitMenu = false;
+    while (!quitMenu)
+    {
+        displayCaveOptions();
+        char choice = UtilityFunctions::userChoice();
+
+        if (choice == '1')
+        {
+            m_combatoptions->startCombatLoop();
+        }
+        else if (choice == '2')
+        {
+            cout << "Opening inventory...\n";
+            m_inventory->manageInventory();
+            m_inventory->saveToFile();
+        }
+        else if (choice == '3')
+        {
+            cout << m_character->toString() << endl;
+        }
+        else if (choice == '4')
+        {
+        }
+        else if (choice == '5')
+        {
+        }
+        else if (choice == 'q')
+        {
+            cout << "Exiting...\n";
+            quitMenu = true;
+        }
+        else
+        {
+            cout << "Invalid choice! Try again.\n";
+        }
+        if (!quitMenu)
+        {
+            UtilityFunctions::confirmToContinue();
+        }
+    }
+}
+
+
+void LocationOptions::displayChurchOptions() const
 {
     cout << "1) QUEST: Slay the goblins" << endl;
     cout << "2) Heal yourself to full health" << endl;
@@ -120,4 +167,13 @@ void LocationOptions::firstEncounterPriest()
     cout << "The priest is excited to see a adventurer and asks for help with their goblin problem that has ravaged their village." << endl;
     cout << "He promises that there is a big award waiting for you if you help out." << endl;
     setFirstEncounterWithPriest(false);
+}
+
+void LocationOptions::displayCaveOptions() const
+{
+    cout << "1. Enter Cave to fight the goblins" << endl;
+    cout << "2. Open Inventory" << endl;
+    cout << "3. Check Stats" << endl;
+    cout << "q. Exit Cave location" << endl;
+
 }
