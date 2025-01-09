@@ -26,7 +26,7 @@ void UtilityFunctions::confirmToContinue()
 {
     string confirm;
     cout << "\nPress enter to continue.." << endl;
-    //cin.ignore(numeric_limits<streamsize>::max(), '\n'); // messes with input buffer? Maybe have it after getline
+    //cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Removed and havnt noticed anything? Maybe change to after getline 
     getline(cin, confirm);
     clearConsole();
 }

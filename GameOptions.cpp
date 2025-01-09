@@ -10,6 +10,7 @@ using namespace std;
 GameOptions::GameOptions(CharacterCreator& character)
     : m_character(&character)
     , m_optionsRunning(false)
+    , m_inventory(character, "inventory.txt")
 {
     // Available locations
     locations.push_back(make_unique<Church>());
@@ -61,7 +62,7 @@ void GameOptions::showCharacterStats()
     cout << m_character->toString() << endl;
 }
 
-void GameOptions::showCurrentLocation() const
+void GameOptions::showCurrentLocation() const // Maybe Remove?
 {
     if (currentLocation) {
         cout << "Current Location: " << currentLocation->getName() << "\n";
@@ -100,8 +101,8 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == '4')
         {
-            Inventory inventory(*m_character, "inventory.txt");
-            LocationOptions locationOptions(*m_character, inventory);
+            //Inventory inventory(*m_character, "inventory.txt");
+            LocationOptions locationOptions(*m_character, m_inventory);
             if (currentLocation->getName() == "Goblin Hollow")
             {
                 locationOptions.startCaveLocation();
