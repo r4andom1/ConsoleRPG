@@ -10,6 +10,7 @@ using namespace std;
 GameOptions::GameOptions(CharacterCreator& character)
     : m_character(&character)
     , m_inventory(make_unique<Inventory>(character, "inventory.txt"))
+    , m_locationOptions(*m_character, *m_inventory)
     , m_optionsRunning(true)
 {
     // Available locations
@@ -94,14 +95,14 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == '4')
         {
-            LocationOptions locationOptions(*m_character, *m_inventory);
+            //LocationOptions locationOptions(*m_character, *m_inventory);
             if (currentLocation->getName() == "Goblin Hollow")
             {
-                locationOptions.startCaveLocation();
+                m_locationOptions.startCaveLocation();
             }
             else if (currentLocation->getName() == "Church of Radiant Dawn")
             {
-                locationOptions.startChurchLocation();
+                m_locationOptions.startChurchLocation();
             }
         }
         else if (choice == 'q') 

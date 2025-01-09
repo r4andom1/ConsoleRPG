@@ -18,6 +18,7 @@ private:
 	shared_ptr<Location> currentLocation;
 	CharacterCreator* m_character;
 	unique_ptr<Inventory> m_inventory;
+	LocationOptions m_locationOptions;
 	bool m_optionsRunning;
 
 public:
