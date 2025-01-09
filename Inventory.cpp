@@ -107,14 +107,15 @@ void Inventory::useHealingPotion()
 void Inventory::manageInventory() {
     bool isRunning = true;
 
-    while (isRunning) {
+    while (isRunning) 
+    {
         UtilityFunctions::clearConsole();
         cout << "\n--- Inventory Menu ---\n";
-        cout << "1. View Inventory\n";
-        cout << "2. Add Item\n";
-        cout << "3. Drop Item\n";
-        cout << "4. Use Item\n";
-        cout << "5. Add HP Potion\n";
+        cout << "1) View Inventory\n";
+        cout << "2) Add Item\n";
+        cout << "3) Drop Item\n";
+        cout << "4) Use Item\n";
+        cout << "5) Add HP Potion\n";
         cout << "q. Exit Inventory\n";
 
         char choice = UtilityFunctions::userChoice(); // Get user input

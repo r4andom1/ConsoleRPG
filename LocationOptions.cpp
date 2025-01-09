@@ -155,7 +155,7 @@ void LocationOptions::displayChurchOptions() const
     cout << "1) Enter Church and talk to priest" << endl;
     cout << "2) Open Inventory" << endl;
     cout << "3) Check Stats" << endl;
-    cout << "q) Exit Cave location" << endl;
+    cout << "q) Exit Church location" << endl;
 }
 
 void LocationOptions::firstEncounterPriest()
