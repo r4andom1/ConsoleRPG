@@ -1,8 +1,9 @@
 #include "CombatOptions.h"
 
-CombatOptions::CombatOptions(CharacterCreator& character, Inventory& inventory)
+CombatOptions::CombatOptions(CharacterCreator& character, Inventory& inventory, LocationOptions& locationOptions)
 	: m_character(&character)
     , m_inventory(&inventory)
+    , m_locationOptions(&locationOptions)
 {
 }
 
@@ -24,6 +25,7 @@ void CombatOptions::startCombatLoop()
         if (choice == '1')
         {
             m_character->takeDamage(5); // test
+            m_locationOptions->setCaveQuestCompleted(true);
         }
         else if (choice == '2')
         {

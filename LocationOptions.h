@@ -14,7 +14,6 @@ private:
 	bool m_caveQuestCompleted;
 	bool m_firstEncounterWithPriest;
 	Inventory* m_inventory;
-	unique_ptr<CombatOptions> m_combatoptions;
 
 public:
 	LocationOptions(CharacterCreator& character, Inventory& inventory);
@@ -32,6 +31,5 @@ public:
 	// Setters & getters
 	void setFirstEncounterWithPriest(bool firstEncounter) { this->m_firstEncounterWithPriest = firstEncounter; }
 	void setCaveQuestCompleted(bool completed) { this->m_caveQuestCompleted = completed; }
-
 };
 

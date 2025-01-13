@@ -5,7 +5,6 @@ LocationOptions::LocationOptions(CharacterCreator& character, Inventory& invento
     , m_caveQuestCompleted(false)
     , m_firstEncounterWithPriest(true)
     , m_inventory(&inventory)
-    , m_combatoptions(make_unique<CombatOptions>(character, inventory))
 {
 }
 
@@ -70,7 +69,7 @@ void LocationOptions::priestDialogueChoice()
                     cout << "What are you still doing here? I thought i asked you to take care of those goblins!" << endl;
                 }
             }
-            else
+            else // Done with cave quest
             {
                 cout << "Thank you so much for helping out! Here is your reward: bla bla" << endl;
             }
@@ -115,8 +114,8 @@ void LocationOptions::startCaveLocation()
 
         if (choice == '1')
         {
-            m_combatoptions->startCombatLoop();
-            setCaveQuestCompleted(true);
+            CombatOptions combatOptions(*m_character, *m_inventory, *this);
+            combatOptions.startCombatLoop();
         }
         else if (choice == '2')
         {
