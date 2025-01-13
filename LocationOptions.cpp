@@ -116,6 +116,7 @@ void LocationOptions::startCaveLocation()
         if (choice == '1')
         {
             m_combatoptions->startCombatLoop();
+            setCaveQuestCompleted(true);
         }
         else if (choice == '2')
         {
@@ -126,12 +127,6 @@ void LocationOptions::startCaveLocation()
         else if (choice == '3')
         {
             cout << m_character->toString() << endl;
-        }
-        else if (choice == '4')
-        {
-        }
-        else if (choice == '5')
-        {
         }
         else if (choice == 'q')
         {

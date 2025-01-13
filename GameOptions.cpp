@@ -95,7 +95,6 @@ void GameOptions::gameMenuStarter()
         }
         else if (choice == '4')
         {
-            //LocationOptions locationOptions(*m_character, *m_inventory);
             if (currentLocation->getName() == "Goblin Hollow")
             {
                 m_locationOptions.startCaveLocation();

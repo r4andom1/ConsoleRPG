@@ -3,7 +3,6 @@
 CombatOptions::CombatOptions(CharacterCreator& character, Inventory& inventory)
 	: m_character(&character)
     , m_inventory(&inventory)
-
 {
 }
 
@@ -24,7 +23,7 @@ void CombatOptions::startCombatLoop()
 
         if (choice == '1')
         {
-            m_character->takeDamage(5);
+            m_character->takeDamage(5); // test
         }
         else if (choice == '2')
         {
