@@ -4,6 +4,7 @@
 #include "FighterCharacter.h"
 #include "RangerCharacter.h"
 #include "WizardCharacter.h"
+#include "UtilityFunctions.h"
 #include "Player.h"
 #include "GameOptions.h"
 #include <string>
@@ -13,7 +14,7 @@ class Game
 {
 private:
 	bool m_startGame;
-	CharacterCreator* m_character; // changed these away from reference, maybe bad?
+	CharacterCreator* m_character;
 
 public:
 	Game(CharacterCreator& character);
@@ -21,7 +22,6 @@ public:
 
 	// Member Functions
 	void run();
-	void clearConsole();
 	void initPlayersClass();
 
 	// Setters & Getters

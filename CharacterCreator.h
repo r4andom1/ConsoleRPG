@@ -33,7 +33,6 @@ public:
 	string chooseRace() const;
 	void displayRaceOptions() const;
 	void displayClassOptions() const;
-	char userChoice() const;
 	virtual int attack();
 	void heal(int health);
 	void takeDamage(int damageTaken);
@@ -53,6 +52,5 @@ public:
 	void setDamage(int damage) { this->m_damage = damage; }
 	int getMana() const { return this->m_mana; }
 	void setMana(int mana) { this->m_mana = mana; }
-
 };
 

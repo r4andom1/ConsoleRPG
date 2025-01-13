@@ -2,7 +2,7 @@
 
 Game::Game(CharacterCreator& character)
 	: m_startGame(false)
-	, m_character(&character) // nullptr? throws read access violation atm.
+	, m_character(&character)
 {
 }
 
@@ -14,15 +14,10 @@ Game::~Game()
 void Game::run()
 {
 	setStartGame(true);
-	clearConsole();
+	UtilityFunctions::clearConsole();
 	initPlayersClass();
 	GameOptions gameOptions(*m_character);
 	gameOptions.gameMenuStarter();
-}
-
-void Game::clearConsole()
-{
-	system("cls");
 }
 
 /* Initializes the correct CharacterClass inside the Game */

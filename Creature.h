@@ -21,6 +21,7 @@ public:
 	
 	// Member Functions
 	const virtual int basicAttack() = 0;
+	virtual void drawCreature() const = 0;
 
 	// Getters & setters
 	string getName() const { return m_name; }
@@ -33,4 +34,5 @@ public:
 	void setCurrentHealth(int currentHealth) { this->m_currentHP = currentHealth; }
 	int getLevel() const { return m_level; }
 	void setLevel(int level) { this->m_level = level; }
+	
 };
