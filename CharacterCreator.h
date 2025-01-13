@@ -36,6 +36,7 @@ public:
 	virtual int attack();
 	void heal(int health);
 	void takeDamage(int damageTaken);
+	virtual string drawPlayer() const { return ""; };
 
 	// Setters & Getters
 	string getName() const { return this->m_name; }

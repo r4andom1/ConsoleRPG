@@ -26,7 +26,6 @@ void StartMenu::start()
 void StartMenu::displayChoices() const
 {
 	displayStartMenuTitle();
-	cout << "Welcome to ConsoleRPG!" << endl;
 	cout << endl;
 	cout << "1) Start Game" << endl;
 	cout << "2) Create Character" << endl;
@@ -94,10 +93,10 @@ void StartMenu::menuChoice(char choice)
 void StartMenu::displayStartMenuTitle() const
 {
 cout << R"(
-	____ ____  _   _  ____  _____ _      ____  _____ ____  
-	/ ___|  _ \| | | |/ ___|| ____| |    |  _ \| ____|  _ \ 
-| |   | |_) | |_| | |  _|  _| | |    | |_) |  _| | |_) |
-| |___|  __/|  _  | |_| | |___| |___ |  _ <| |___|  _ < 
-	\____|_|   |_| |_|\____|_____|_____|_| \_\_____|_| \_\
+  ____                      _      ____  ____   ____ 
+ / ___|___  _ __  ___  ___ | | ___|  _ \|  _ \ / ___|
+| |   / _ \| '_ \/ __|/ _ \| |/ _ \ |_) | |_) | |  _ 
+| |__| (_) | | | \__ \ (_) | |  __/  _ <|  __/| |_| |
+ \____\___/|_| |_|___/\___/|_|\___|_| \_\_|    \____|
 )";
 }

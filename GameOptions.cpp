@@ -54,6 +54,7 @@ void GameOptions::showCharacterStats()
     UtilityFunctions::clearConsole();
     cout << "Checking stats...\n";
     cout << m_character->toString() << endl;
+    cout << m_character->drawPlayer() << endl;
 }
 
 void GameOptions::showCurrentLocation() const // Maybe Remove?

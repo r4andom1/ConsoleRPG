@@ -21,3 +21,31 @@ int FighterCharacter::attack()
 	cout << "Fighter attacks for: " << basicAttack << " damage!" << endl;
 	return basicAttack;
 }
+
+string FighterCharacter::drawPlayer() const
+{
+
+	return R"(
+      _,.
+    ,` -.)
+   ( _/-\\-._
+  /,|`--._,-^|            ,
+  \_| |`-._/||          ,'|
+    |  `-, / |         /  /
+    |     || |        /  /
+     `r-._||/   __   /  /
+ __,-<_     )`-/  `./  /
+'  \   `---'   \   /  /
+    |           |./  /
+    /           //  /
+\_/' \         |/  /
+ |    |   _,^-'/  /
+ |    , ``  (\/  /_
+  \,.->._    \X-=/^
+  (  /   `-._//^`
+   `Y-.____(__}
+    |     {__)
+          ()
+	)";
+
+}

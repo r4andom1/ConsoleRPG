@@ -15,5 +15,6 @@ public:
 	// Member Functions
 	string toString() const override;
 	int attack() override;
+	string drawPlayer() const override;
 };
 

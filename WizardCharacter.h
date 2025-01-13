@@ -16,6 +16,7 @@ public:
 	// Member Functions
 	string toString() const override;
 	int attack() override;
+	string drawPlayer() const override;
 
 	// Getters & Setters
 	int getMana() const { return this->m_mana; }

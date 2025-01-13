@@ -22,3 +22,25 @@ int RangerCharacter::attack()
 	cout << "Ranger draws his bow and hits for: " << basicAttack << " damage!" << endl;
 	return basicAttack;
 }
+
+string RangerCharacter::drawPlayer() const
+{
+	return R"(
+                 .,
+        .    ____/__,
+      .' \  / \==\```
+     /    \ 77 \ |
+    /_.----\\__,-----.
+<--(\_|_____<__|_____/
+    \  ````/|   ``/```
+     `.   / |    I|
+       `./  |____I|
+            !!!!!!!
+            | | I |
+            | | I |
+            \ \ I |
+            | | I |
+           _|_|_I_|
+          /__/____|
+	)";
+}
