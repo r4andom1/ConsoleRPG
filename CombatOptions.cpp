@@ -24,8 +24,7 @@ void CombatOptions::startCombatLoop()
 
         if (choice == '1')
         {
-            m_character->takeDamage(5); // test
-            m_locationOptions->setCaveQuestCompleted(true);
+            m_locationOptions->setCaveQuestCompleted(true); // test
         }
         else if (choice == '2')
         {

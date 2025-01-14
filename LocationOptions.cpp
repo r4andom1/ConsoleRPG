@@ -76,11 +76,7 @@ void LocationOptions::priestDialogueChoice()
             }
             else // Done with cave quest
             {
-                drawPriest();
-                cout << "Thank you so much for helping out with the goblins!" << endl;
-                cout << "Now we finally can start working on restoring this church and get back to helping out the people in this village!" << endl;
-                cout << "\nHere is your reward:" << endl;
-                cout << "\nTwo Healing Potions\n10 Experience points" << endl;
+                caveQuestDoneDialogue();
             }
         }
         else if (choice == '2')
@@ -219,6 +215,17 @@ void LocationOptions::drawPriest() const
    _/ _  __  ___  __ _\_
  _/ __  ___  _ ___ __ _ \_
     )" << endl;
+}
+
+void LocationOptions::caveQuestDoneDialogue()
+{
+    drawPriest();
+    cout << "Thank you so much for helping out with the goblins!" << endl;
+    cout << "Now we finally can start working on restoring this church and get back to helping out the people in this village!" << endl;
+    cout << "\nHere is your reward:" << endl;
+    cout << "\nTwo Healing Potions\n10 Experience points" << endl;
+    m_inventory->createHealingPotion();
+    m_inventory->createHealingPotion();
 }
 
 void LocationOptions::displayCaveOptions() const

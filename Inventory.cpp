@@ -83,7 +83,6 @@ void Inventory::createHealingPotion()
 {
     Item healingPotion("Healing Potion", "Restores health when used.");
     addItem(healingPotion);
-    cout << "Healing Potion has been added to your inventory." << endl;
 }
 
 void Inventory::useHealingPotion() 

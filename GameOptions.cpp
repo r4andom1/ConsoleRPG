@@ -80,7 +80,6 @@ void GameOptions::gameMenuStarter()
         startingAreaDescription();
         setFirstPlaythrough(false);
         currentLocation->drawImage();
-        //cout << currentLocation->getName() << endl;
         displayGameOptions();
 
         char choice = UtilityFunctions::userChoice();

@@ -26,6 +26,7 @@ public:
 	void firstEncounterPriest();
 	void drawChurch() const;
 	void drawPriest() const;
+	void caveQuestDoneDialogue();
 
 	void startCaveLocation();
 	void displayCaveOptions() const;
