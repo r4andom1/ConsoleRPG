@@ -49,7 +49,7 @@ void CreatureHandler::removeCreature(const string& name)
         if (m_creatures[i]->getName() == name)
         {
             delete m_creatures[i]; // Rensa upp minnet för den borttagna creaturen
-
+            m_creatures[i] = nullptr;
             // Flytta resten av arrayen för att fylla hålet
             for (int j = i; j < m_size - 1; ++j)
             {
@@ -109,4 +109,3 @@ int CreatureHandler::getCreatureCount() const
 {
     return m_size;
 }
-

@@ -2,6 +2,7 @@
 #include "Church.h"
 #include "Cave.h"
 #include "Inventory.h"
+#include "CreatureHandler.h"
 #include <iostream>
 #include <string>
 
@@ -10,7 +11,7 @@ using namespace std;
 GameOptions::GameOptions(CharacterCreator& character)
     : m_character(&character)
     , m_inventory(make_unique<Inventory>(character, "inventory.txt"))
-    , m_locationOptions(*m_character, *m_inventory)
+    , m_locationOptions(*m_character, *m_inventory, *m_creaturehandler)
     , m_optionsRunning(true)
 {
     // Available locations

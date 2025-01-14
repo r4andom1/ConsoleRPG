@@ -20,6 +20,7 @@ private:
 	unique_ptr<Inventory> m_inventory;
 	LocationOptions m_locationOptions;
 	bool m_optionsRunning;
+	CreatureHandler* m_creaturehandler;
 
 public:
 	// Constructor

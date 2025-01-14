@@ -1,13 +1,14 @@
 #include "LocationOptions.h"
 
-LocationOptions::LocationOptions(CharacterCreator& character, Inventory& inventory)
+LocationOptions::LocationOptions(CharacterCreator& character, Inventory& inventory, CreatureHandler& creatureHandler)
     : m_character(&character)
     , m_caveQuestCompleted(false)
     , m_firstEncounterWithPriest(true)
     , m_inventory(&inventory)
-    , m_charactercreator(&character)
     , m_combatoptions(nullptr)
+    , m_creaturehandler(&creatureHandler)
 {
+    m_combatoptions = new CombatOptions(*m_creaturehandler, *m_character, *m_inventory);
 }
 
 void LocationOptions::startChurchLocation()
@@ -144,14 +145,6 @@ void LocationOptions::startCaveLocation()
         }
     }
 }
-
-void LocationOptions::initializeCombatOptions(CreatureHandler& creatureHandler)
-{
-    if (m_combatoptions == nullptr) {
-        m_combatoptions = new CombatOptions(creatureHandler, *m_character, *m_inventory);
-    }
-}
-
 
 void LocationOptions::displayChurchOptions() const
 {

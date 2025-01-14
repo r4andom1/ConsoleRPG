@@ -13,7 +13,7 @@ class CombatOptions
 private:
 	CharacterCreator* m_character;
 	Inventory* m_inventory;
-	CreatureHandler* m_handler;
+	CreatureHandler* m_creaturehandler;
 
 public:
 	CombatOptions(CreatureHandler& creatureHandler, CharacterCreator& character, Inventory& inventory);

@@ -3,6 +3,7 @@
 #include "Inventory.h"
 #include "UtilityFunctions.h"
 #include "CombatOptions.h"
+#include "CreatureHandler.h"
 #include <string>
 
 using namespace std;
@@ -15,10 +16,10 @@ private:
 	bool m_firstEncounterWithPriest;
 	Inventory* m_inventory;
 	CombatOptions* m_combatoptions;
-	CharacterCreator* m_charactercreator;
+	CreatureHandler* m_creaturehandler;
 
 public:
-	LocationOptions(CharacterCreator& character, Inventory& inventory);
+	LocationOptions(CharacterCreator& character, Inventory& inventory, CreatureHandler& charactercreator);
 	~LocationOptions() = default;
 	
 	void startChurchLocation();
