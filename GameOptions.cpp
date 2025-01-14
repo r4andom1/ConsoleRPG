@@ -58,23 +58,10 @@ void GameOptions::showCharacterStats()
     cout << m_character->drawPlayer() << endl;
 }
 
-void GameOptions::showCurrentLocation() const // Maybe Remove?
-{
-    if (currentLocation) {
-        cout << "Current Location: " << currentLocation->getName() << "\n";
-        currentLocation->drawImage();
-        currentLocation->areaDescription();
-    }
-    else 
-    {
-        cout << "You are nowhere!\n";
-    }
-}
-
 void GameOptions::gameMenuStarter()
 {
     setIsRunning(true);
-    while (isRunning()) 
+    while (isRunning() && m_character->isAlive()) 
     {
         UtilityFunctions::clearConsole();
         startingAreaDescription();
@@ -116,7 +103,7 @@ void GameOptions::gameMenuStarter()
         {
             cout << "Invalid choice! Try again.\n";
         }
-        if (isRunning())
+        if (isRunning() && m_character->isAlive())
         {
             UtilityFunctions::confirmToContinue();
         }

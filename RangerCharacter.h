@@ -8,7 +8,7 @@ class RangerCharacter : public CharacterCreator
 private:
 
 public:
-	RangerCharacter(const string& name = "?", const string& pClass = "Ranger", const string& race = "?", int maxHP = 7, int currentHP = 7, int damage = 7);
+	RangerCharacter(const string& name = "?", const string& pClass = "Ranger", const string& race = "?", int maxHP = 12, int currentHP = 12, int damage = 7);
 	virtual ~RangerCharacter();
 
 	// Member Functions

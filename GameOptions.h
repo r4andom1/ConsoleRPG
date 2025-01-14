@@ -32,7 +32,6 @@ public:
 	// Member Functions
 	void travel();
 	void showCharacterStats();
-	void showCurrentLocation() const;
 	void gameMenuStarter();
 	void manageInventory(Inventory& inventory);
 	void displayGameOptions() const;

@@ -53,5 +53,7 @@ public:
 	void setDamage(int damage) { this->m_damage = damage; }
 	int getMana() const { return this->m_mana; }
 	void setMana(int mana) { this->m_mana = mana; }
+	bool isAlive() { return this->m_isAlive; }
+	void setIsAlive(bool isAlive) { this->m_isAlive = isAlive; }
 };
 

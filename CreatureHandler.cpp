@@ -25,17 +25,24 @@ bool CreatureHandler::addGoblin(const string& name, int damage, int maxHP, int c
 	return didAdd;
 }
 
-bool CreatureHandler::removeCreature(int index)
+void CreatureHandler::removeCreature(const string& name)
 {
-	bool didRemove = false;
-	if (index < m_maxCapacity)
+	for (int i = 0; i < m_currentNrOf; ++i)
 	{
-		delete m_creatures[index];
-		m_creatures[index] = nullptr;
-		--m_currentNrOf;
-		didRemove = true;
+		if (m_creatures[i] && m_creatures[i]->getName() == name)
+		{
+			delete m_creatures[i];
+
+			for (int j = i; j < m_currentNrOf - 1; ++j)
+			{
+				m_creatures[j] = m_creatures[j + 1];
+			}
+
+			m_creatures[--m_currentNrOf] = nullptr;
+			return;
+		}
 	}
-	return didRemove;
+	cout << "Creature not found!" << endl;
 }
 
 void CreatureHandler::displayAllCreatures()
@@ -49,6 +56,7 @@ void CreatureHandler::displayAllCreatures()
 			cout << endl;
 		}
 	}
+	cout << "---------------------------" << endl;
 }
 
 Creature* CreatureHandler::getCreature(int index) const

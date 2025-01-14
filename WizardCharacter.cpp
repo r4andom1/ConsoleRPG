@@ -21,9 +21,10 @@ int WizardCharacter::attack()
 	if (m_mana >= 3)
 	{
 		int fireBallDamage = 10;
+		int manaCost = 3;
 		cout << "Wizard casting fireball for: " << fireBallDamage << " damage!" << endl;
 		cout << "-3 mana" << endl;
-		this->m_mana -= 3;
+		this->m_mana -= manaCost;
 		return fireBallDamage;
 	}
 	else

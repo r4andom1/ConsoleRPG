@@ -12,10 +12,11 @@ void CombatOptions::startCombatLoop()
     bool isRunning = true;
 
     CreatureHandler creatureHandler;
-    creatureHandler.addGoblin("Goblin", 2, 7, 7, 1); // test
-    creatureHandler.addGoblin("Goblin", 2, 5, 5, 1); // test
+    creatureHandler.addGoblin("Goblin Rogue", 1, 7, 7, 1);
+    creatureHandler.addGoblin("Goblin Archer", 2, 5, 5, 1);
+    creatureHandler.addGoblin("Goblin Rogue", 2, 8, 8, 2); 
 
-    while (isRunning)
+    while (isRunning && m_character->isAlive())
     {
         if (creatureHandler.getCreatureCount() == 0)
         {
@@ -26,6 +27,7 @@ void CombatOptions::startCombatLoop()
         UtilityFunctions::clearConsole();
 
         creatureHandler.displayAllCreatures();
+        cout << "Your HP: " << m_character->getCurrentHP() << "/" << m_character->getMaxHP() << endl;
         displayCombatOptions();
         char choice = UtilityFunctions::userChoice();
 
@@ -35,7 +37,7 @@ void CombatOptions::startCombatLoop()
             creatureHandler.displayAllCreatures();
                 
             int index{};
-            cout << "Enter the creature index (1-" << creatureHandler.getCreatureCount() << "): ";
+            cout << "Enter the creatures index (1-" << creatureHandler.getCreatureCount() << "): ";
             cin >> index;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
@@ -53,8 +55,9 @@ void CombatOptions::startCombatLoop()
             if (!creatureTargeted->isAlive())
             {
                 cout << creatureTargeted->getName() << " has been defeated!\n";
-                creatureHandler.removeCreature(index - 1);
+                creatureHandler.removeCreature(creatureTargeted->getName());
             }
+
         }
         else if (choice == '2')
         {
@@ -75,9 +78,22 @@ void CombatOptions::startCombatLoop()
         {
             cout << "Invalid choice! Try again.\n";
         }
+        for (int i = 0; i < creatureHandler.getCreatureCount(); i++)
+        {
+            Creature* creature = creatureHandler.getCreature(i);
+            if (creature && creature->isAlive())
+            {
+                int creatureDamage = creature->basicAttack();
+                m_character->takeDamage(creatureDamage);
+            }
+        }
         if (isRunning)
         {
             UtilityFunctions::confirmToContinue();
+        }
+        if (!m_character->isAlive())
+        {
+            cout << "You lost!" << endl;
         }
     }
 }
@@ -125,9 +141,9 @@ void CombatOptions::startCombatLoop()
 void CombatOptions::displayCombatOptions() const
 {
     cout << "\n--- Combat Menu ---\n";
-    cout << "1. Attack" << endl;
-    cout << "2. View Inventory" << endl;
-    cout << "3. View Stats" << endl;
-    cout << "q. exit" << endl;
+    cout << "1) Attack" << endl;
+    cout << "2) View Inventory" << endl;
+    cout << "3) View Stats" << endl;
+    cout << "q) exit" << endl;
 }
 

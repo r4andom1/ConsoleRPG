@@ -7,7 +7,7 @@ Goblin::Goblin(const string& name, int damage, int maxHP, int currentHP, int lev
 
 const int Goblin::basicAttack()
 {
-    return 2;
+    return Creature::getDamage();
 }
 
 void Goblin::drawCreature() const

@@ -10,7 +10,7 @@ private:
 	int m_mana;
 
 public:
-	WizardCharacter(const string& name="?", const string& pClass="Wizard", const string& race="?", int maxHP=5, int currentHP=5, int damage=5, int mana=10);
+	WizardCharacter(const string& name="?", const string& pClass="Wizard", const string& race="?", int maxHP=10, int currentHP=5, int damage=10, int mana=10);
 	virtual ~WizardCharacter();
 
 	// Member Functions

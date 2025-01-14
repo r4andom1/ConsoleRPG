@@ -112,7 +112,7 @@ void LocationOptions::priestDialogueOptions() const
 void LocationOptions::startCaveLocation()
 {
     bool quitMenu = false;
-    while (!quitMenu)
+    while (!quitMenu && m_character->isAlive())
     {
         UtilityFunctions::clearConsole();
         displayCaveOptions();
@@ -120,8 +120,11 @@ void LocationOptions::startCaveLocation()
 
         if (choice == '1')
         {
-            CombatOptions combatOptions(*m_character, *m_inventory, *this);
-            combatOptions.startCombatLoop();
+            if (!m_caveQuestCompleted)
+            {
+                CombatOptions combatOptions(*m_character, *m_inventory, *this);
+                combatOptions.startCombatLoop();
+            }
         }
         else if (choice == '2')
         {
@@ -143,7 +146,7 @@ void LocationOptions::startCaveLocation()
         {
             cout << "Invalid choice! Try again.\n";
         }
-        if (!quitMenu)
+        if (!quitMenu && m_character->isAlive())
         {
             UtilityFunctions::confirmToContinue();
         }
