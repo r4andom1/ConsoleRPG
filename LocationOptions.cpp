@@ -14,6 +14,7 @@ void LocationOptions::startChurchLocation()
     while (!quitMenu)
     {
         UtilityFunctions::clearConsole();
+        drawChurch();
         displayChurchOptions();
         char choice = UtilityFunctions::userChoice();
 
@@ -53,6 +54,7 @@ void LocationOptions::priestDialogueChoice()
     while (!quitMenu)
     {
         UtilityFunctions::clearConsole();
+        drawPriest();
         priestDialogueOptions();
         char choice = UtilityFunctions::userChoice();
 
@@ -62,21 +64,25 @@ void LocationOptions::priestDialogueChoice()
             {
                 if (m_firstEncounterWithPriest)
                 {
+                    drawPriest();
                     firstEncounterPriest();
                 }
                 else
                 {
+                    drawPriest();
                     cout << "What are you still doing here? I thought i asked you to take care of those goblins!" << endl;
                 }
             }
             else // Done with cave quest
             {
+                drawPriest();
                 cout << "Thank you so much for helping out! Here is your reward: bla bla" << endl;
             }
         }
         else if (choice == '2')
         {
-            cout << "The priest heals you to full health." << endl;
+            drawPriest();
+            cout << "The priest heals you to full health!" << endl;
             int fullHealth = m_character->getMaxHP();
             m_character->heal(fullHealth);
         }
@@ -155,9 +161,59 @@ void LocationOptions::displayChurchOptions() const
 void LocationOptions::firstEncounterPriest()
 {
     cout << "You enter the church and walk up to the priest." << endl;
-    cout << "The priest is excited to see a adventurer and asks for help with their goblin problem that has ravaged their village." << endl;
-    cout << "He promises that there is a big award waiting for you if you help out." << endl;
+    cout << "The priest is excited to see a adventurer and asks for help with the goblins that have been ravaging their church." << endl;
+    cout << "He promises that there is a big reward waiting for you if you help out." << endl;
     setFirstEncounterWithPriest(false);
+}
+
+void LocationOptions::drawChurch() const
+{
+    cout << "        .\n";
+    cout << "      .' '.\n";
+    cout << "     .'  | `.\n";
+    cout << "   .'    |   `.\n";
+    cout << "  .`---..|..---'.\n";
+    cout << "   ||   |=|   ||\n";
+    cout << "   ||_.-'|`-._||\n";
+    cout << "   ||`-._|_.-'||\n";
+    cout << " __||   |=|   ||_\n";
+    cout << "'._ `-. |=| .-' _`\n";
+    cout << "   `-._|=|_.-'  \\\n";
+    cout << "       |=|       \\\n";
+    cout << "       |_|        |\n";
+    cout << "       | |        |\n";
+    cout << "       |_|        |\n";
+    cout << "       |_|        |\n";
+    cout << "                  '\n";
+    cout << endl;
+}
+
+void LocationOptions::drawPriest() const
+{
+    cout << R"(
+           .---.
+         /` ___|`\
+         |_/    \|
+         (  -/-  )
+          \_ - _/
+         .-'|_|'-.
+        /         \
+       /     O     \
+      / _____!_____ \
+     /.-------------.\
+     \|     ,;,     |/
+      |     ;;;     |
+      |  ;;;;;;;;;  |
+      |   `';;;'`   |
+      |     ;;;     |
+      |     ;;;     |
+      |     :::     |
+      |     ';'     |
+      |             |
+     _| _  __   __ _|_
+   _/ _  __  ___  __ _\_
+ _/ __  ___  _ ___ __ _ \_
+    )" << endl;
 }
 
 void LocationOptions::displayCaveOptions() const

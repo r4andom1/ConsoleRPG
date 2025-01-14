@@ -24,6 +24,8 @@ public:
 	void priestDialogueChoice();
 	void priestDialogueOptions() const;
 	void firstEncounterPriest();
+	void drawChurch() const;
+	void drawPriest() const;
 
 	void startCaveLocation();
 	void displayCaveOptions() const;

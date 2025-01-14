@@ -12,6 +12,7 @@ GameOptions::GameOptions(CharacterCreator& character)
     , m_inventory(make_unique<Inventory>(character, "inventory.txt"))
     , m_locationOptions(*m_character, *m_inventory)
     , m_optionsRunning(true)
+    , m_firstPlaythrough(true)
 {
     // Available locations
     locations.push_back(make_unique<Church>());
@@ -76,8 +77,10 @@ void GameOptions::gameMenuStarter()
     while (isRunning()) 
     {
         UtilityFunctions::clearConsole();
+        startingAreaDescription();
+        setFirstPlaythrough(false);
         currentLocation->drawImage();
-        cout << currentLocation->getName() << endl;
+        //cout << currentLocation->getName() << endl;
         displayGameOptions();
 
         char choice = UtilityFunctions::userChoice();
@@ -134,4 +137,18 @@ void GameOptions::displayGameOptions() const
     cout << "3) Check Stats\n";
     cout << "4) Explore your current location \n"; // testing combat feature
     cout << "q) Exit to Main Menu\n";
+}
+
+void GameOptions::startingAreaDescription() const
+{
+    if (getFirstPlaythrough())
+    {
+        cout << "You awake at the foot of a tree, just outside a small village,\n";
+        cout << "\nYou have been on a long journey to find this village.";
+        cout << "\nknowing this is the last known location of your kidnapped brother,";
+        cout << "\nyou stand up and continue your search.";
+        cout << "\n";
+        cout << "\nYou scan your surroundings and see a church in disrepair, what would you like to do next?\n";
+        UtilityFunctions::confirmToContinue();
+    } 
 }

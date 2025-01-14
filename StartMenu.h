@@ -27,7 +27,7 @@ public:
 	void start();
 	void displayChoices() const;
 	void menuChoice(char choice);
-	void displayStartMenuTitle() const;
+	string displayStartMenuTitle() const;
 
 	// Setters & Getters
 	void setStartMenu(bool startMenu) { this->m_startMenu = startMenu; }

@@ -20,6 +20,7 @@ private:
 	unique_ptr<Inventory> m_inventory;
 	LocationOptions m_locationOptions;
 	bool m_optionsRunning;
+	bool m_firstPlaythrough;
 
 public:
 	// Constructor
@@ -35,10 +36,13 @@ public:
 	void gameMenuStarter();
 	void manageInventory(Inventory& inventory);
 	void displayGameOptions() const;
+	void startingAreaDescription() const;
 
 	// Getters & Setters
 	bool isRunning() const { return this->m_optionsRunning; }
 	void setIsRunning(bool isRunning) { this->m_optionsRunning = isRunning; }
+	void setFirstPlaythrough(bool firstPlay) { this->m_firstPlaythrough = firstPlay; }
+	bool getFirstPlaythrough() const { return this->m_firstPlaythrough; }
 
 
 };

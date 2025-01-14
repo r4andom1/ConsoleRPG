@@ -25,8 +25,7 @@ void StartMenu::start()
 
 void StartMenu::displayChoices() const
 {
-	displayStartMenuTitle();
-	cout << endl;
+	cout << displayStartMenuTitle() << endl;
 	cout << "1) Start Game" << endl;
 	cout << "2) Create Character" << endl;
 	cout << "3) View your current character" << endl;
@@ -90,9 +89,9 @@ void StartMenu::menuChoice(char choice)
 	}
 }
 
-void StartMenu::displayStartMenuTitle() const
+string StartMenu::displayStartMenuTitle() const
 {
-cout << R"(
+return R"(
   ____                      _      ____  ____   ____ 
  / ___|___  _ __  ___  ___ | | ___|  _ \|  _ \ / ___|
 | |   / _ \| '_ \/ __|/ _ \| |/ _ \ |_) | |_) | |  _ 
