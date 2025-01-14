@@ -31,6 +31,7 @@ void LocationOptions::startChurchLocation()
         else if (choice == '3') 
         {
             cout << m_character->toString() << endl;
+            cout << m_character->drawPlayer() << endl;
         }
         else if (choice == 'q') 
         {
@@ -76,7 +77,10 @@ void LocationOptions::priestDialogueChoice()
             else // Done with cave quest
             {
                 drawPriest();
-                cout << "Thank you so much for helping out! Here is your reward: bla bla" << endl;
+                cout << "Thank you so much for helping out with the goblins!" << endl;
+                cout << "Now we finally can start working on restoring this church and get back to helping out the people in this village!" << endl;
+                cout << "\nHere is your reward:" << endl;
+                cout << "\nTwo Healing Potions\n10 Experience points" << endl;
             }
         }
         else if (choice == '2')
@@ -132,6 +136,7 @@ void LocationOptions::startCaveLocation()
         else if (choice == '3')
         {
             cout << m_character->toString() << endl;
+            cout << m_character->drawPlayer() << endl;
         }
         else if (choice == 'q')
         {

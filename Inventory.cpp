@@ -112,13 +112,11 @@ void Inventory::manageInventory() {
         UtilityFunctions::clearConsole();
         cout << "\n--- Inventory Menu ---\n";
         cout << "1) View Inventory\n";
-        cout << "2) Add Item\n";
-        cout << "3) Drop Item\n";
-        cout << "4) Use Item\n";
-        cout << "5) Add HP Potion\n";
-        cout << "q. Exit Inventory\n";
+        cout << "2) Drop Item\n";
+        cout << "3) Use Item\n";
+        cout << "q) Exit Inventory\n";
 
-        char choice = UtilityFunctions::userChoice(); // Get user input
+        char choice = UtilityFunctions::userChoice();
 
         if (choice == 'q') {
             saveToFile();
@@ -129,14 +127,6 @@ void Inventory::manageInventory() {
             displayInventory();
         }
         else if (choice == '2') {
-            string name, description;
-            cout << "Enter item name: ";
-            getline(cin, name);
-            cout << "Enter item description: ";
-            getline(cin, description);
-            addItem(Item(name, description));
-        }
-        else if (choice == '3') {
             displayInventory();
             string name{};
             cout << "Enter item name to drop: ";
@@ -148,7 +138,7 @@ void Inventory::manageInventory() {
                 cout << name << " not found in inventory.\n";
             }
         }
-        else if (choice == '4') {
+        else if (choice == '3') {
             displayInventory();
             cout << "Enter item name to use: ";
             string name;
@@ -160,9 +150,6 @@ void Inventory::manageInventory() {
             else {
                 cout << "This item cannot be used." << endl;
             }
-        }
-        else if (choice == '5') {
-            createHealingPotion();
         }
         else {
             cout << "Invalid choice. Try again.\n";

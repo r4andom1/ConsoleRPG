@@ -18,4 +18,4 @@ int main()
 // TODO: Fixa en creature handler som vi har gjort tidigare i kursen. Man ska kunna lägga till, ta väck, sätta deras hp etc.
 // Creature handlern måste ha creatures i en array så vi får igenom det kravet.
 // 
-// FRÅGA BETTY: Måste vi ta väck alla kommentarer? Vill spara de som förklarar vad vissa funktioner gör.
+// TODO: Ta väck alla onödiga kommentarer (Dock ej docstrings och förklaringar för funktioner!!)
