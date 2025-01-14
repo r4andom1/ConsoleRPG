@@ -14,13 +14,12 @@ void CombatOptions::startCombatLoop()
     while (isRunning)
     {
         UtilityFunctions::clearConsole();
-        char choice = UtilityFunctions::userChoice();
-
         cout << "\n--- Combat Menu ---\n";
         cout << "1. Attack" << endl;
         cout << "2. View Inventory" << endl;
         cout << "3. View Stats" << endl;
         cout << "q. exit" << endl;
+        char choice = UtilityFunctions::userChoice();
 
         if (choice == '1')
         {

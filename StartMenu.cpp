@@ -66,7 +66,9 @@ void StartMenu::menuChoice(char choice)
 	else if (choice == '3')
 	{
 		if (m_character != nullptr)
+		{ 
 			cout << m_character->toString() << endl;
+		}
 		else
 			cout << "You need to create a character first!" << endl;
 	}
