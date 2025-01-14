@@ -43,6 +43,4 @@ public:
 	void setIsRunning(bool isRunning) { this->m_optionsRunning = isRunning; }
 	void setFirstPlaythrough(bool firstPlay) { this->m_firstPlaythrough = firstPlay; }
 	bool getFirstPlaythrough() const { return this->m_firstPlaythrough; }
-
-
 };

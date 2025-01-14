@@ -5,7 +5,6 @@
 using namespace std;
 
 class Location {
-private:
 public:
     virtual ~Location() = default;
     virtual void drawImage() const = 0;

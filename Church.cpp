@@ -30,8 +30,5 @@ string Church::getName() const
 
 string Church::areaDescription() const
 {
-    /*return "A beacon of light in a troubled land, this church radiates an aura of warmth and healing. "
-        "Pilgrims travel from distant realms to seek blessings from its revered High Priest, "
-        "though dark forces conspire to shroud its holy light.";*/
     return "You are standing outside the Church.";
 }

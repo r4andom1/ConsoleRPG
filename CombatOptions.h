@@ -1,5 +1,6 @@
 #pragma once
 
+#include "CreatureHandler.h"
 #include "LocationOptions.h"
 #include "CharacterCreator.h"
 #include "UtilityFunctions.h"
@@ -21,5 +22,7 @@ private:
 public:
 	CombatOptions(CharacterCreator& character, Inventory& inventory, LocationOptions& locationOptions);
 	void startCombatLoop();
+	//void startFightWithGoblins();
+	void displayCombatOptions() const;
 };
 

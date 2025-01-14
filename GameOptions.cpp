@@ -142,10 +142,9 @@ void GameOptions::startingAreaDescription() const
 {
     if (getFirstPlaythrough())
     {
-        cout << "You awake at the foot of a tree, just outside a small village,\n";
-        cout << "\nYou have been on a long journey to find this village.";
-        cout << "\nknowing this is the last known location of your kidnapped brother,";
-        cout << "\nyou stand up and continue your search.";
+        cout << "You awake at the foot of a tree,\njust outside a small village.\n";
+        cout << "\nKnowing this is the last known location of your kidnapped brother,";
+        cout << "\nyou stand up on your feet and continue your search.";
         cout << "\n";
         cout << "\nYou scan your surroundings and see a church in disrepair, what would you like to do next?\n";
         UtilityFunctions::confirmToContinue();
