@@ -17,6 +17,8 @@ private:
 public:
 	// Cons and dest
 	Creature(const string& name, int damage, int maxHP, int currentHP, int level, bool isAlive);
+	void takeDamage(int damageTaken);
+	bool isAlive() const;
 	virtual ~Creature() = default;
 	
 	// Member Functions

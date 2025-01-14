@@ -5,7 +5,8 @@ LocationOptions::LocationOptions(CharacterCreator& character, Inventory& invento
     , m_caveQuestCompleted(false)
     , m_firstEncounterWithPriest(true)
     , m_inventory(&inventory)
-    , m_combatoptions(make_unique<CombatOptions>(character, inventory))
+    , m_charactercreator(&character)
+    , m_combatoptions(nullptr)
 {
 }
 
@@ -141,6 +142,13 @@ void LocationOptions::startCaveLocation()
         {
             UtilityFunctions::confirmToContinue();
         }
+    }
+}
+
+void LocationOptions::initializeCombatOptions(CreatureHandler& creatureHandler)
+{
+    if (m_combatoptions == nullptr) {
+        m_combatoptions = new CombatOptions(creatureHandler, *m_character, *m_inventory);
     }
 }
 

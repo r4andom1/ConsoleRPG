@@ -14,7 +14,8 @@ private:
 	bool m_caveQuestCompleted;
 	bool m_firstEncounterWithPriest;
 	Inventory* m_inventory;
-	unique_ptr<CombatOptions> m_combatoptions;
+	CombatOptions* m_combatoptions;
+	CharacterCreator* m_charactercreator;
 
 public:
 	LocationOptions(CharacterCreator& character, Inventory& inventory);
@@ -27,6 +28,7 @@ public:
 	void firstEncounterPriest();
 
 	void startCaveLocation();
+	void initializeCombatOptions(CreatureHandler& creatureHandler);
 	void displayCaveOptions() const;
 
 	// Setters & getters
