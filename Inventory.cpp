@@ -45,37 +45,48 @@ void Inventory::displayInventory() const
     }
 }
 
-void Inventory::saveToFile() const 
+void Inventory::saveToFile() const
 {
-    ofstream file(fileName);
-    if (file.is_open()) 
-    {
-        for (const auto& item : items) {
-            file << item.toString() << "\n";
+    try {
+        ofstream file(fileName);
+        if (file.is_open())
+        {
+            for (const auto& item : items) {
+                file << item.toString() << "\n";
+            }
+            file.close();
         }
-        file.close();
+        else {
+            throw runtime_error("Unable to open file!");
+        }
     }
-    else {
-        cerr << "Unable to save inventory to file.\n";
+    catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
     }
 }
 
-void Inventory::loadFromFile() 
+void Inventory::loadFromFile()
 {
-    items.clear();
-    ifstream file(fileName);
-    if (file.is_open()) 
-    {
-        string line;
-        while (getline(file, line)) {
-            if (!line.empty()) {
-                items.push_back(Item::fromString(line));
+    try {
+        items.clear();
+        ifstream file(fileName);
+        if (file.is_open())
+        {
+            string line;
+            while (getline(file, line)) {
+                if (!line.empty()) {
+                    items.push_back(Item::fromString(line));
+                }
             }
+            file.close();
         }
-        file.close();
+        else {
+            throw runtime_error("Unable to load file.");
+        }
     }
-    else {
-        cerr << "Unable to load inventory from file. Starting with an empty inventory.\n";
+    catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
+        cerr << "Starting with an empty inventory.\n";
     }
 }
 
