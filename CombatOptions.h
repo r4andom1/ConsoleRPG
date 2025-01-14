@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class LocationOptions; // Forward declaration solves it??
+class LocationOptions;
 
 class CombatOptions
 {

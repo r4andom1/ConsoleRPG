@@ -5,7 +5,6 @@
 #include "RangerCharacter.h"
 #include "WizardCharacter.h"
 #include "UtilityFunctions.h"
-#include "Player.h"
 #include "GameOptions.h"
 #include <string>
 using namespace std;

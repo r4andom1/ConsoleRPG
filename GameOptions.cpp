@@ -121,7 +121,7 @@ void GameOptions::displayGameOptions() const
     cout << "1) Travel\n";
     cout << "2) Open Inventory\n";
     cout << "3) Check Stats\n";
-    cout << "4) Explore your current location \n"; // testing combat feature
+    cout << "4) Explore your current location \n";
     cout << "q) Exit to Main Menu\n";
 }
 

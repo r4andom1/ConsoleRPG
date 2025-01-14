@@ -16,7 +16,6 @@ public:
 
 	// Member Functions
 	bool addGoblin(const string& name, int damage, int maxHP, int currentHP, int level, bool isAlive=true);
-	//bool removeCreature(int index);
 	void removeCreature(const string& name);
 
 	// Getters & setters

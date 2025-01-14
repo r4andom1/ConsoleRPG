@@ -22,10 +22,9 @@ public:
 	int maxHP=-1, int currentHP=-1, int damage=-1, int mana=0, bool isAlive=true);
 
 	// Destructor
-	virtual ~CharacterCreator();
+	virtual ~CharacterCreator() = default;
 
 	// Member Functions
-	void start();
 	virtual string toString() const;
 	void createCharacter();
 	string chooseName() const;

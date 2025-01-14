@@ -11,11 +11,3 @@ int main()
 
 	return 0;
 }
-
-// TODO: Implementera combat i Cave area. 
-// 
-// 
-// TODO: Fixa en creature handler som vi har gjort tidigare i kursen. Man ska kunna lägga till, ta väck, sätta deras hp etc.
-// Creature handlern måste ha creatures i en array så vi får igenom det kravet.
-// 
-// TODO: Ta väck alla onödiga kommentarer (Dock ej docstrings och förklaringar för funktioner!!)2

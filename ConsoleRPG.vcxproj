@@ -142,7 +142,6 @@
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Location.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="RangerCharacter.cpp" />
     <ClCompile Include="StartMenu.cpp" />
     <ClCompile Include="UtilityFunctions.cpp" />
@@ -163,7 +162,6 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="LocationOptions.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="RangerCharacter.h" />
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="UtilityFunctions.h" />

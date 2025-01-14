@@ -13,14 +13,6 @@ CharacterCreator::CharacterCreator(const string& name, const string& playerClass
 {
 }
 
-CharacterCreator::~CharacterCreator()
-{
-}
-
-void CharacterCreator::start()
-{
-}
-
 string CharacterCreator::toString() const
 {
 	return "\nName: " + m_name +

@@ -112,4 +112,3 @@ void CombatOptions::displayCombatOptions() const
     cout << "3) View Stats" << endl;
     cout << "q) exit" << endl;
 }
-
