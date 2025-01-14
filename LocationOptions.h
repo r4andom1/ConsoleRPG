@@ -20,7 +20,7 @@ private:
 
 public:
 	LocationOptions(CharacterCreator& character, Inventory& inventory, CreatureHandler& charactercreator);
-	~LocationOptions() = default;
+	virtual ~LocationOptions();
 	
 	void startChurchLocation();
 	void displayChurchOptions() const;
@@ -29,7 +29,6 @@ public:
 	void firstEncounterPriest();
 
 	void startCaveLocation();
-	void initializeCombatOptions(CreatureHandler& creatureHandler);
 	void displayCaveOptions() const;
 
 	// Setters & getters

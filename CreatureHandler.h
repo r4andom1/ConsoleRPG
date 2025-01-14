@@ -15,11 +15,12 @@ private:
 
 public:
     CreatureHandler();
-    ~CreatureHandler();
+    virtual ~CreatureHandler();
 
     // Member Functions
     void addCreature(Creature* creature);
     void removeCreature(const string& name);
+    void removeAllCreatures();
     void setCreatureHP(const string& name, int newHP);
     void listCreatures() const;
     Creature* getCreature(int index) const;

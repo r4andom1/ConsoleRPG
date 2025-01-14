@@ -11,12 +11,14 @@ using namespace std;
 class CombatOptions
 {
 private:
-	CharacterCreator& m_character;
-	Inventory& m_inventory;
+	CharacterCreator* m_character;
+	Inventory* m_inventory;
 	CreatureHandler& m_creatureHandler;
 
 public:
 	CombatOptions(CreatureHandler& creatureHandler, CharacterCreator& character, Inventory& inventory);
+	virtual ~CombatOptions();
+
 	void startCombatLoop();
 	void attackCreature();
 };

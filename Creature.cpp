@@ -30,7 +30,7 @@ const int Creature::basicAttack()
 	int baseDamage = this->getDamage();
 	int levelBonus = this->getLevel();
 
-	int damageDealt = baseDamage + levelBonus;
+	int damageDealt = baseDamage;
 
 	return damageDealt;
 }

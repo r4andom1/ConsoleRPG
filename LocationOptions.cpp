@@ -12,6 +12,12 @@ LocationOptions::LocationOptions(CharacterCreator& character, Inventory& invento
     m_combatoptions = new CombatOptions(*m_creaturehandler, *m_character, *m_inventory);
 }
 
+LocationOptions::~LocationOptions()
+{
+    delete m_combatoptions;
+    delete m_creaturehandler;
+}
+
 void LocationOptions::startChurchLocation()
 {
     bool quitMenu = false;

@@ -1,8 +1,6 @@
 #pragma once
 #include "Creature.h"
 
-
-
 class Goblin : public Creature
 {
 private:

@@ -19,6 +19,7 @@ CreatureHandler::~CreatureHandler()
         delete m_creatures[i];
     }
     delete[] m_creatures;
+    m_creatures = nullptr;
 }
 
 void CreatureHandler::expand()
@@ -37,7 +38,7 @@ void CreatureHandler::expand()
 
 void CreatureHandler::addCreature(Creature* creature)
 {
-    if (m_size == m_capacity) {
+    if (m_size >= m_capacity) {
         expand();
     }
 
@@ -50,20 +51,24 @@ void CreatureHandler::removeCreature(const string& name)
     {
         if (m_creatures[i]->getName() == name)
         {
-            delete m_creatures[i]; // Rensa upp minnet för den borttagna creaturen
+            delete m_creatures[i];
             m_creatures[i] = nullptr;
-            // Flytta resten av arrayen för att fylla hålet
 
-            for (int j = i; j < m_size - 1; ++j)
-            {
-                m_creatures[j] = m_creatures[j + 1];
-            }
-
-            --m_size; // Minska storleken
+            --m_size;
             return;
         }
     }
     cout << "Creature not found!" << endl;
+}
+
+void CreatureHandler::removeAllCreatures()
+{
+    for (int i = 0; i < m_size; i++)
+    {
+        delete m_creatures[i];
+        m_creatures[i] = nullptr;
+    }
+    m_size = 0;
 }
 
 void CreatureHandler::setCreatureHP(const string& name, int newHP)
@@ -84,11 +89,10 @@ void CreatureHandler::listCreatures() const
 {
     if (m_size == 0)
     {
-        cout << "No creatures in the handler!" << endl;
+        cout << "No creatures found!" << endl;
         return;
     }
 
-    cout << "Listing all creatures:" << endl;
     for (int i = 0; i < m_size; ++i)
     {
         cout << "Name: " << m_creatures[i]->getName()
