@@ -22,7 +22,7 @@ public:
 	virtual ~Creature() = default;
 	
 	// Member Functions
-	const virtual int basicAttack() = 0;
+	const int basicAttack();
 
 	// Getters & setters
 	string getName() const { return m_name; }

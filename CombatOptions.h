@@ -11,9 +11,9 @@ using namespace std;
 class CombatOptions
 {
 private:
-	CharacterCreator* m_character;
-	Inventory* m_inventory;
-	CreatureHandler* m_creaturehandler;
+	CharacterCreator& m_character;
+	Inventory& m_inventory;
+	CreatureHandler& m_creatureHandler;
 
 public:
 	CombatOptions(CreatureHandler& creatureHandler, CharacterCreator& character, Inventory& inventory);

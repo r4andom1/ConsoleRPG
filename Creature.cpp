@@ -24,3 +24,13 @@ bool Creature::isAlive() const
 {
 	return m_isAlive;
 }
+
+const int Creature::basicAttack()
+{
+	int baseDamage = this->getDamage();
+	int levelBonus = this->getLevel();
+
+	int damageDealt = baseDamage + levelBonus;
+
+	return damageDealt;
+}

@@ -8,6 +8,7 @@ LocationOptions::LocationOptions(CharacterCreator& character, Inventory& invento
     , m_combatoptions(nullptr)
     , m_creaturehandler(&creatureHandler)
 {
+    m_creaturehandler = new CreatureHandler();
     m_combatoptions = new CombatOptions(*m_creaturehandler, *m_character, *m_inventory);
 }
 

@@ -3,10 +3,13 @@
 #include <algorithm>
 
 CreatureHandler::CreatureHandler()
-    : m_creatures(new Creature*[m_capacity]{nullptr})
-    , m_capacity(5)
+    : m_capacity(5)
     , m_size(0)
 {
+    m_creatures = new Creature * [m_capacity];
+    for (int i = 0; i < m_capacity; ++i) {
+        m_creatures[i] = nullptr;
+    }
 }
 
 CreatureHandler::~CreatureHandler()
@@ -34,13 +37,11 @@ void CreatureHandler::expand()
 
 void CreatureHandler::addCreature(Creature* creature)
 {
-    if (m_size == m_capacity)
-    {
+    if (m_size == m_capacity) {
         expand();
     }
 
     m_creatures[m_size++] = creature;
-    cout << "Creature added successfully!" << endl;
 }
 
 void CreatureHandler::removeCreature(const string& name)
@@ -52,13 +53,13 @@ void CreatureHandler::removeCreature(const string& name)
             delete m_creatures[i]; // Rensa upp minnet för den borttagna creaturen
             m_creatures[i] = nullptr;
             // Flytta resten av arrayen för att fylla hålet
+
             for (int j = i; j < m_size - 1; ++j)
             {
                 m_creatures[j] = m_creatures[j + 1];
             }
 
             --m_size; // Minska storleken
-            cout << "Creature removed successfully!" << endl;
             return;
         }
     }
