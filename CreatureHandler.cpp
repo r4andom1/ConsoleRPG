@@ -3,9 +3,10 @@
 #include <algorithm>
 
 CreatureHandler::CreatureHandler()
-    : m_creatures(nullptr), m_capacity(2), m_size(0)
+    : m_creatures(new Creature*[m_capacity]{nullptr})
+    , m_capacity(5)
+    , m_size(0)
 {
-    m_creatures = new Creature * [m_capacity];
 }
 
 CreatureHandler::~CreatureHandler()

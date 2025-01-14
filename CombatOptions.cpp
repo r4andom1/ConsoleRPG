@@ -2,10 +2,12 @@
 #include "Goblin.h"
 
 CombatOptions::CombatOptions(CreatureHandler& creatureHandler, CharacterCreator& character, Inventory& inventory)
-    : m_handler(&creatureHandler), m_character(&character), m_inventory(&inventory)
+    : m_handler(&creatureHandler)
+    , m_character(&character)
+    , m_inventory(&inventory)
 {
-    m_handler->addCreature(new Goblin("Goblin Warrior", 3, 6, 6, 2, true));
-    m_handler->addCreature(new Goblin("Goblin Archer", 4, 5, 5, 2, true));
+    m_handler->addCreature(new Goblin("Goblin Warrior", 3, 6, 6, 2));
+    m_handler->addCreature(new Goblin("Goblin Archer", 4, 5, 5, 2));
 }
 
 void CombatOptions::startCombatLoop()
@@ -14,7 +16,6 @@ void CombatOptions::startCombatLoop()
 
     while (isRunning)
     {
-
         cout << "\n--- Combat Menu ---\n";
         cout << "1. Attack" << endl;
         cout << "2. View Inventory" << endl;
@@ -33,7 +34,7 @@ void CombatOptions::startCombatLoop()
             cout << "Opening inventory...\n";
             m_inventory->manageInventory();
             m_inventory->saveToFile();
-        }
+        } 
         else if (choice == '3')
         {
             cout << m_character->toString() << endl;
