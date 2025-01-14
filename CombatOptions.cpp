@@ -26,6 +26,7 @@ void CombatOptions::startCombatLoop()
         }
         UtilityFunctions::clearConsole();
 
+        bool playerHasAttacked = false;
         creatureHandler.displayAllCreatures();
         cout << "Your HP: " << m_character->getCurrentHP() << "/" << m_character->getMaxHP() << endl;
         displayCombatOptions();
@@ -51,16 +52,17 @@ void CombatOptions::startCombatLoop()
             cout << endl;
 
             creatureTargeted->takeDamage(playerDamage);
+            playerHasAttacked = true;
 
             if (!creatureTargeted->isAlive())
             {
                 cout << creatureTargeted->getName() << " has been defeated!\n";
                 creatureHandler.removeCreature(creatureTargeted->getName());
             }
-
         }
         else if (choice == '2')
         {
+            playerHasAttacked = true;
             cout << "Opening inventory...\n";
             m_inventory->manageInventory();
             m_inventory->saveToFile();
@@ -78,13 +80,17 @@ void CombatOptions::startCombatLoop()
         {
             cout << "Invalid choice! Try again.\n";
         }
-        for (int i = 0; i < creatureHandler.getCreatureCount(); i++)
+        if (playerHasAttacked)
         {
-            Creature* creature = creatureHandler.getCreature(i);
-            if (creature && creature->isAlive())
+            for (int i = 0; i < creatureHandler.getCreatureCount(); i++)
             {
-                int creatureDamage = creature->basicAttack();
-                m_character->takeDamage(creatureDamage);
+                Creature* creature = creatureHandler.getCreature(i);
+                if (creature && creature->isAlive())
+                {
+                    int creatureDamage = creature->basicAttack();
+                    m_character->takeDamage(creatureDamage);
+                    cout << creature->getName() << " attacked you for " << creature->getDamage() << " damage!" << endl;
+                }
             }
         }
         if (isRunning)
@@ -97,46 +103,6 @@ void CombatOptions::startCombatLoop()
         }
     }
 }
-
-//void CombatOptions::startFightWithGoblins()
-//{
-//    CreatureHandler creatureHandler;
-//    creatureHandler.addGoblin("Goblin Warrior", 2, 7, 7, 1); // test
-//    creatureHandler.addGoblin("Goblin Archer", 2, 5, 5, 1); // test
-//    //creatureHandler.removeCreature(1); // test
-//    if (creatureHandler.getCreatureCount() == 0)
-//    {
-//        cout << "No creatures to attack!" << endl;
-//        return;
-//    }
-//
-//    cout << "Choose a creature to attack:\n\n";
-//    creatureHandler.displayAllCreatures();
-//
-//    int index;
-//    cout << "Enter the creature index (1-" << creatureHandler.getCreatureCount() << "): ";
-//    cin >> index;
-//
-//    if (index < 0 || index >= creatureHandler.getCreatureCount())
-//    {
-//        cout << "Invalid creature index!" << endl;
-//        return;
-//    }
-//    Creature* creatureTargeted = creatureHandler.getCreature(index - 1);
-//    int playerDamage = m_character->attack();
-//
-//    if (creatureTargeted != nullptr)
-//    {
-//        creatureTargeted->takeDamage(playerDamage);
-//        cout << "You attacked " << creatureTargeted->getName() << " for " << playerDamage << " damage!\n";
-//
-//        if (!creatureTargeted->isAlive())
-//        {
-//            cout << creatureTargeted->getName() << " has been defeated!\n";
-//            creatureHandler.removeCreature(index);
-//        }
-//    }
-//}
 
 void CombatOptions::displayCombatOptions() const
 {
