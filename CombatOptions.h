@@ -22,7 +22,6 @@ private:
 public:
 	CombatOptions(CharacterCreator& character, Inventory& inventory, LocationOptions& locationOptions);
 	void startCombatLoop();
-	//void startFightWithGoblins();
 	void displayCombatOptions() const;
 };
 
