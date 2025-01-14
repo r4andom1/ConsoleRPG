@@ -118,7 +118,7 @@ void LocationOptions::startCaveLocation()
         if (choice == '1')
         {
             m_combatoptions->startCombatLoop();
-            setCaveQuestCompleted(true);
+            setCaveQuestCompleted(true); // test
         }
         else if (choice == '2')
         {
