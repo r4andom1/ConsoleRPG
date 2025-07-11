@@ -1,1 +1,0 @@
-Healing Potion|Restores health when used.

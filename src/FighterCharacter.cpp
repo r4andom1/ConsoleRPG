@@ -12,7 +12,6 @@ FighterCharacter::~FighterCharacter()
 string FighterCharacter::toString() const
 {
 	return CharacterCreator::toString();
-	// additional Fighter stats?
 }
 
 int FighterCharacter::attack()
